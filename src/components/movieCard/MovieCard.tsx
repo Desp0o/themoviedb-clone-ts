@@ -1,6 +1,16 @@
+import React from "react"
+import "./movieCard.css"
 
-export default function MovieCard() {
+interface movieCardProps {
+    image: string
+}
+
+const MovieCard: React.FC<movieCardProps> = ({image}) => {
   return (
-    <div>MovieCard</div>
+    <div className="movie_Card">
+        <img src={image} alt="movie card" />
+    </div>
   )
 }
+
+export default MovieCard
