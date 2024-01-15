@@ -5,7 +5,7 @@ import TrendingMovies from "../TrendingMovie"
 export default function Home() {
   return (
     <div>
-      <MovieCard image={testImage} rating={10} />
+      <MovieCard image={testImage} rating={10} title="" date=""/>
       <TrendingMovies />
     </div>
     

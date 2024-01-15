@@ -4,9 +4,11 @@ import "./movieCard.css";
 interface movieCardProps {
   image: string;
   rating: number;
+  title: string,
+  date: string
 }
 
-const MovieCard: React.FC<movieCardProps> = ({ image, rating }) => {
+const MovieCard: React.FC<movieCardProps> = ({ image, rating, title, date }) => {
   const dasharray = Math.PI * 100;
   const dashOffset = Math.PI * (100 - rating);
 
@@ -53,7 +55,12 @@ const MovieCard: React.FC<movieCardProps> = ({ image, rating }) => {
             strokeDashoffset={dashOffset}
           />
         </svg>
+
+        <p className="movie_card_rating_txt">{rating}</p>
       </div>
+
+      <p className="movie_card_title">{title}</p>
+      <p className="movie_card_date">{date}</p>
     </div>
   );
 };

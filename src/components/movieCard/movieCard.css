@@ -45,3 +45,35 @@
     position: absolute;
     transform: scale(0.95);
 }
+
+.movie_card_rating_txt{
+    position: absolute;
+    color: white;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.movie_card_rating_txt::after{
+    content: "%";
+    position: absolute;
+    top: 3px;
+    right: -5px;
+    font-size: 6px;
+}
+
+.movie_card_title{
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-left: 12px;
+}
+
+.movie_card_date{
+    font-size: 16px;
+    color: rgba(0,0,0,.6);
+    
+    margin-left: 12px;
+}
