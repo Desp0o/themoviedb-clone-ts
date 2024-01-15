@@ -20,9 +20,28 @@
     left: 12px;
     bottom: -17px;
 
-    width: 35px;
-    height: 35px;
+    width: 38px;
+    height: 38px;
 
     border-radius: 50%;
     background-color: var(--dark-blue);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rating_svg{
+    transform: rotate(-90deg);
+}
+
+.full_circle_rating{
+    position: absolute;
+    transform: scale(0.95);
+    opacity: 0.5;
+}
+
+.full_circle_rating_front{
+    position: absolute;
+    transform: scale(0.95);
 }
