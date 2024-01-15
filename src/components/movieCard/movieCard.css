@@ -1,79 +1,79 @@
-.movie_Card{
-    box-sizing: border-box;
-    position: relative;
-    width: 150px;
-    height: 225px;
+.movie_Card {
+  box-sizing: border-box;
+  position: relative;
+  min-width: 150px;
+  height: 225px;
 }
 
-.movie_Card img{
-    width: 100%;
-    height: 100%;
+.movie_Card img {
+  width: 100%;
+  height: 100%;
 
-    object-fit: cover;
-    object-position: center;
+  object-fit: cover;
+  object-position: center;
 
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
-.movie_card_rating{
-    position: absolute;
-    left: 12px;
-    bottom: -17px;
+.movie_card_rating {
+  position: absolute;
+  left: 12px;
+  bottom: -17px;
 
-    width: 38px;
-    height: 38px;
+  width: 38px;
+  height: 38px;
 
-    border-radius: 50%;
-    background-color: var(--dark-blue);
+  border-radius: 50%;
+  background-color: var(--dark-blue);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.rating_svg{
-    transform: rotate(-90deg);
+.rating_svg {
+  transform: rotate(-90deg);
 }
 
-.full_circle_rating{
-    position: absolute;
-    transform: scale(0.95);
-    opacity: 0.5;
+.full_circle_rating {
+  position: absolute;
+  transform: scale(0.95);
+  opacity: 0.5;
 }
 
-.full_circle_rating_front{
-    position: absolute;
-    transform: scale(0.95);
+.full_circle_rating_front {
+  position: absolute;
+  transform: scale(0.95);
 }
 
-.movie_card_rating_txt{
-    position: absolute;
-    color: white;
+.movie_card_rating_txt {
+  position: absolute;
+  color: white;
 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.movie_card_rating_txt::after{
-    content: "%";
-    position: absolute;
-    top: 3px;
-    right: -5px;
-    font-size: 6px;
+.movie_card_rating_txt::after {
+  content: "%";
+  position: absolute;
+  top: 3px;
+  right: -5px;
+  font-size: 6px;
 }
 
-.movie_card_title{
-    font-size: 16px;
-    text-transform: capitalize;
-    font-weight: bold;
-    margin-top: 15px;
-    margin-left: 12px;
+.movie_card_title {
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-left: 12px;
 }
 
-.movie_card_date{
-    font-size: 16px;
-    color: rgba(0,0,0,.6);
-    
-    margin-left: 12px;
+.movie_card_date {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+
+  margin-left: 12px;
 }
