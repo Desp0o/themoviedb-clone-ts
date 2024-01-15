@@ -1,5 +1,5 @@
 
-import TrendingMovies from "../query/trendingMovies/TrendingMovie"
+import TrendingMovies from "../components/trendingMovies/TrendingMovie"
 
 export default function Home() {
   return (
