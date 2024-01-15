@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 import axios from "axios";
-import MovieCard from "../movieCard/MovieCard";
+import MovieCard from "../../components/movieCard/MovieCard";
 import "./trendingMovies.css";
 import { useState } from "react";
 

@@ -1,9 +1,11 @@
 
-import TrendingMovies from "../components/trendingMovies/TrendingMovie"
+import FirsSection from "../components/firstSection/FirsSection"
+import TrendingMovies from "../query/trendingMovies/TrendingMovie"
 
 export default function Home() {
   return (
     <div>
+      <FirsSection />
       <TrendingMovies />
     </div>
     
