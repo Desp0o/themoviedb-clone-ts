@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./movieCard.css";
+import { Link } from "react-router-dom";
 
 interface movieCardProps {
   image: string;
   rating: number;
   title: string;
   date: string;
+  movieId:number;
 }
 
 const MovieCard: React.FC<movieCardProps> = ({
@@ -13,6 +15,7 @@ const MovieCard: React.FC<movieCardProps> = ({
   rating,
   title,
   date,
+  movieId
 }) => {
   const dasharray = Math.PI * 100;
   const dashOffset = Math.PI * (100 - rating);
@@ -32,6 +35,7 @@ const MovieCard: React.FC<movieCardProps> = ({
   }, [rating]);
 
   return (
+    <Link to={`/pages/singleMoviePage/${movieId}`}>
     <div className="movie_card_container">
       <div className="movie_Card">
         <img src={image} alt="movie card" />
@@ -74,6 +78,7 @@ const MovieCard: React.FC<movieCardProps> = ({
       <p className="movie_card_title">{title}</p>
       <p className="movie_card_date">{date}</p>
     </div>
+    </Link>
   );
 };
 

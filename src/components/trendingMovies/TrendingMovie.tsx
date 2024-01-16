@@ -31,6 +31,9 @@ export default function TrendingMovies() {
     refetch();
   };
 
+
+  
+
   const { isLoading, data, refetch } = useQuery(
     ["trending-movies", path],
     () => {
@@ -42,6 +45,8 @@ export default function TrendingMovies() {
       });
     }
   );
+
+  console.log(data);
 
   return (
     <div className="trending_movie_list">
@@ -74,6 +79,7 @@ export default function TrendingMovies() {
                 image={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${item.poster_path}`}
                 rating={roundedRating}
                 date={item.release_date}
+                movieId={item.id}
               />
             );
           })

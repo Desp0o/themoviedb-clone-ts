@@ -32,6 +32,7 @@ export default function PopularTvShows() {
                 image={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${item.poster_path}`}
                 rating={roundedRating}
                 date={item.first_air_date}
+                movieId={item.id}
               />
             );
           })

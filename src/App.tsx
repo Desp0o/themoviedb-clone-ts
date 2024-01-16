@@ -2,6 +2,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "react-query";
 import Home from "./pages/Home";
 import Navbar from "./components/navbar/navbar";
+import SingleMoviePage from "./pages/singleMoviePage/SingleMoviePage";
 
 const queryClient = new QueryClient()
 
@@ -12,6 +13,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/pages/singleMoviePage/:id" element={<SingleMoviePage />} />
         </Routes>
       </HashRouter>
     </QueryClientProvider>

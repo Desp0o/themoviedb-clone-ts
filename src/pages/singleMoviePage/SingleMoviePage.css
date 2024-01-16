@@ -1,0 +1,69 @@
+.SingleMoviePage{
+    width: 100%;
+}
+
+.SingleMoviePage_backdrop{
+    padding: 30px 0;
+    margin-top: 200px;
+    position: relative;
+    width: 100%;
+}
+
+
+.backdrop_image{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    filter: brightness(0.3);
+}
+
+.backdrop_image_loading{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+}
+.backdrop_inner{
+    position: relative;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.single_poster{
+    min-width: 300px;
+    width: 300px;
+    height: 450px;
+    border-radius: 30px;
+}
+
+.Single_Movie_Title_date{
+    display: flex;
+    gap: 10px;
+}
+
+.Single_Movie_Title{
+    font-size: 34px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.Single_Movie_release_date{
+    font-size: 35px;
+    opacity: .8;
+    color: #fff;
+}
+
+.date_genre_runtime{
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
