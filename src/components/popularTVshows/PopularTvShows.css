@@ -1,0 +1,25 @@
+.popular_tv_show_list{
+    width: 100%;
+    max-width: 1300px;
+    min-height: 290px;
+    margin: 40px auto 200px auto;
+}
+
+.popular_tv_show_list_inner{
+    position: relative;
+    display: flex;
+    gap: 20px;
+    margin: 0 auto;
+
+    width: 100%;
+
+    padding: 0 50px 20px 50px;
+    
+    overflow-x: scroll;
+}
+
+.popular_tv_show_title{
+    font-size: 24px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
