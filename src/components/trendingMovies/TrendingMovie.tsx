@@ -1,12 +1,14 @@
 import { useQuery } from "react-query";
 import axios from "axios";
-import MovieCard from "../../components/movieCard/MovieCard";
+import MovieCard from "../movieCard/MovieCard";
 import "./trendingMovies.css";
 import { useState } from "react";
+import MovieListLoadingComponent from "../movieListLoading/MovieListLoadingComponent";
 
 export default function TrendingMovies() {
   const day = "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
-  const week = "https://api.themoviedb.org/3/trending/movie/week?language=en-US";
+  const week =
+    "https://api.themoviedb.org/3/trending/movie/week?language=en-US";
 
   const [path, setPath] = useState(day);
   const [toggler, setToggler] = useState("toggler_btn_left");
@@ -59,19 +61,23 @@ export default function TrendingMovies() {
       </div>
 
       <div className="trending_movie_list_inner">
-        {data?.data.results.map((item: any) => {
-          const roundedRating = Math.round(item.vote_average * 10);
+        {isLoading ? (
+          <MovieListLoadingComponent />
+        ) : (
+          data?.data.results.map((item: any) => {
+            const roundedRating = Math.round(item.vote_average * 10);
 
-          return (
-            <MovieCard
-              key={item.id}
-              title={item.title}
-              image={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${item.poster_path}`}
-              rating={roundedRating}
-              date={item.release_date}
-            />
-          );
-        })}
+            return (
+              <MovieCard
+                key={item.id}
+                title={item.title}
+                image={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${item.poster_path}`}
+                rating={roundedRating}
+                date={item.release_date}
+              />
+            );
+          })
+        )}
       </div>
     </div>
   );

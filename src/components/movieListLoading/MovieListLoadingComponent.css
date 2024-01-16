@@ -1,0 +1,44 @@
+.MovieListLoadingComponent {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    padding-bottom: 65px;
+    overflow-x: scroll;
+    animation: blinking;
+    animation-duration: 3s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+.loading-placeholder{
+    box-sizing: border-box;
+    position: relative;
+    width: 150px;
+    min-width: 150px;
+    height: 225px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+  
+    background-color: #d1d0d4;
+    border-radius: 10px;
+}
+
+.movie_list_loading_cover{
+    width: 80%;
+}
+
+@keyframes blinking {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
