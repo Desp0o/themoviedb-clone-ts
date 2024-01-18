@@ -73,7 +73,7 @@
 
     background-color: var(--dark-blue);
     border-radius: 30px;
-    transition: all .3s ease;
+    transition: all .3s ease-out;
 }
 
 .toggler_btn_right{
@@ -85,7 +85,7 @@
     transform: translateX(calc(100% - 52px));
     background-color: var(--dark-blue);
     border-radius: 30px;
-    transition: all .2s ease;
+    transition: all .2s ease-out;
 }
 
 .active_trending_day_txt{
