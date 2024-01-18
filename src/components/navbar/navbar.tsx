@@ -49,7 +49,7 @@ export default function Navbar() {
                 {
                     window.innerWidth > 768 
                         ? 
-                        <Link to='/'>Login</Link> 
+                        <Link to='/pages/singleMoviePage/2'>Login</Link> 
                         : 
                         <Link to='/'> <img src={userIcon} alt='user' className='userResIcon'/> </Link>      
                 }

@@ -1,0 +1,68 @@
+.Wrap2023{
+    position: relative;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto 0px auto;
+    padding: 70px 0px 70px 50px;
+
+    background-image: url("../../assets/images/barbie.webp");
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.603);
+}
+
+.wrap-title{
+    position: relative;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 50px;
+    width: 320px;
+
+    background: linear-gradient(to right,#94C8AC 0,#3091F1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Wrap2023 p{
+    position: relative;
+    font-size: 20px;
+    color: white;
+}
+
+.wrap-btn{
+    position: relative;
+    box-sizing: border-box;
+    width: 139px;
+    height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    border: 2px solid white;
+    border-radius: 30px;
+
+    cursor: pointer;
+}
+
+.wrap-btn h4{
+    position: relative;
+    color: white;
+}
+
+.wrap-btn-arrow{
+    width: 15px;
+}
