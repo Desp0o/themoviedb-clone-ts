@@ -6,7 +6,7 @@ import SingleMovieTitle from "../../components/singleMovieComponents/SingleMovie
 import LoadingComponent from "../../components/loadingComponent/LoadingComponent";
 import RatingCircle from "../../components/movieCard/RatingCircle";
 import TagLine from "../../components/singleMovieComponents/TagLine";
-import SingleMovieOverView from "../../components/singleMovieComponents/singleMovieOverView";
+import SingleMovieOverView from "../../components/singleMovieComponents/SingleMovieOverView";
 import BookMarkLikeSave from "../../components/singleMovieComponents/BookMarkLikeSave";
 
 export default function SingleMoviePage() {
