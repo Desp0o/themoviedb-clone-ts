@@ -13,3 +13,9 @@
 .footer_logo{
     width: 150px;
 }
+
+@media (max-width:600px) {
+    .footer_logo{
+        width: 75px;
+    }
+}

@@ -1,7 +1,6 @@
 .SingleMoviePage{
     width: 100%;
     min-height:100vh;
-    
     background-color: var(--dark-blue);
 }
 
@@ -53,7 +52,6 @@
 }
 
 .single_poster{
-    min-width: 300px;
     width: 300px;
     height: 450px;
     border-radius: 10px;
@@ -141,4 +139,69 @@
 
     background-color: var(--dark-blue);
     cursor: pointer;
+}
+
+.CompanyComponent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.CompanyComponent img{
+    height: 200px;
+    width: auto;
+    object-fit: contain;
+    aspect-ratio: 1/1;
+}
+
+@media (max-width:600px) {
+    .single_poster{
+        margin: 0 auto;
+        width: 250px;
+    height: 400px;
+        border-radius: 10px;
+    }
+    .backdrop_inner{
+        padding: 0 20px;
+    }
+    .backdrop_inner_right_side{
+        margin-top: 0;
+    }
+
+
+    .Single_Movie_Title{
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .date_genre_runtime{
+        color: #fff;
+    
+        display: flex;
+        align-items: flex-start;
+        gap:5px;
+        font-size: 14px;
+    }
+
+    .backdrop_inner{
+        flex-direction: column;
+    }
+
+    .CompanyComponent{
+        margin: 0 auto;
+        padding: 40px 20px;
+        display: grid;
+        grid-template-columns: auto auto; 
+        gap: 10px 30;
+    }
+
+    .CompanyComponent img{
+        height: 70px;
+        width: auto;
+        object-fit: contain;
+        aspect-ratio: 1/1;
+    }
+
 }

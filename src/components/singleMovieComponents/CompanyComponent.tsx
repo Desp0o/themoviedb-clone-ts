@@ -16,7 +16,7 @@ const CompanyComponent: React.FC<companyProps> = ({companyList = []}) => {
             console.log(item.logo_path);
             
             return(
-                <img key={index} src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${item.logo_path}`} alt="company" className="compnay_logo"/>
+                <img key={index} src={`https://www.themoviedb.org/t/p/original${item.logo_path}`} alt="company" className="compnay_logo"/>
             )
         })}
       </div>
