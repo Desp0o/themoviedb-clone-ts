@@ -11,9 +11,9 @@ const BookMarkLikeSave = () => {
 
   return (
     <div className='BookMarkLikeSave'>
-        {array.map( item => {
+        {array.map( (item, index) => {
             return(
-                <div className='BookMarkLikeSave_circle'>
+                <div key={index} className='BookMarkLikeSave_circle'>
                     <img src={item} alt='bookmark' style={{width:"18px"}} />
                 </div>
             )

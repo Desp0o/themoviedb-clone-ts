@@ -1,0 +1,15 @@
+.Footer{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 50px 20px;
+
+    background-color: var(--dark-blue);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer_logo{
+    width: 150px;
+}

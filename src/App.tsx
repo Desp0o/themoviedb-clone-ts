@@ -3,6 +3,7 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import Home from "./pages/Home";
 import Navbar from "./components/navbar/navbar";
 import SingleMoviePage from "./pages/singleMoviePage/SingleMoviePage";
+import Footer from "./components/footer/Footer";
 
 const queryClient = new QueryClient()
 
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/pages/singleMoviePage/:id" element={<SingleMoviePage />} />
         </Routes>
+        <Footer />
       </HashRouter>
     </QueryClientProvider>
   );

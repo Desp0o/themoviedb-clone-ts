@@ -8,6 +8,7 @@ import RatingCircle from "../../components/movieCard/RatingCircle";
 import TagLine from "../../components/singleMovieComponents/TagLine";
 import SingleMovieOverView from "../../components/singleMovieComponents/SingleMovieOverView";
 import BookMarkLikeSave from "../../components/singleMovieComponents/BookMarkLikeSave";
+import CompanyComponent from "../../components/singleMovieComponents/CompanyComponent";
 
 export default function SingleMoviePage() {
   const { id } = useParams();
@@ -68,10 +69,10 @@ export default function SingleMoviePage() {
                 <TagLine tagline={data?.data.tagline} />
 
                 <SingleMovieOverView overview={data?.data.overview} />
-
               </div>
             </div>
           </div>
+          <CompanyComponent companyList={data?.data.production_companies} />
         </div>
       )}
     </>
