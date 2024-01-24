@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/pages/singleMoviePage/:id" element={<SingleMoviePage />} />
-          <Route path="/pages/PopularMovies" element={<PopularMovies />} />
+          <Route path="/pages/PopularMovies/" element={<PopularMovies />} />
         </Routes>
         <Footer />
       </HashRouter>
