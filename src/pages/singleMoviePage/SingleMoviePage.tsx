@@ -42,9 +42,11 @@ export default function SingleMoviePage() {
           className="SingleMoviePage_backdrop"
           style={{
             backgroundImage: `url(${
-              isLoading
-                ? loadingImagePattern
-                : `http://www.themoviedb.org/t/p/w1920_and_h800_bestv2${data?.data.backdrop_path}`
+              isLoading ? (
+                <></>
+              ) : (
+                `http://www.themoviedb.org/t/p/w1920_and_h800_bestv2${data?.data.backdrop_path}`
+              )
             })`,
           }}
         >
