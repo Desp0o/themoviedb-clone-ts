@@ -106,9 +106,15 @@
 }
 
 .company_list{
+  box-sizing: border-box;
   display: grid;
   justify-content: center;
   gap: 40px;
+}
+
+.ProductionCountrys{
+  box-sizing: border-box;
+  padding: 30px 20px;
 }
 
 .ProductionCountrys h2{
