@@ -1,0 +1,170 @@
+.single_movie_info{
+  width: 100%;
+  box-sizing: border-box !important;
+}
+
+.Single_Movie_Title_date {
+  box-sizing: border-box;
+  display: flex;
+  gap: 10px;
+  width: fit-content;
+}
+
+.Single_Movie_Title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #fff;
+  
+}
+
+.Single_Movie_release_date {
+  font-size: 35px;
+  opacity: 0.8;
+  color: #fff;
+}
+
+.date_genre_runtime {
+  color: #fff;
+  width: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
+
+.single_movie_page_rating_container {
+  margin-top: 15px;
+  height: fit-content;
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.tagline_text {
+  margin-top: 15px;
+  opacity: 1;
+  font-style: italic;
+  font-size: 17.5px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.single_page_overview{
+  box-sizing: border-box;
+}
+
+.single_page_overview h3 {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.movie_overview{
+  margin-top: 15px;
+  font-size: 16px;
+  color: #fff;
+
+  width: 700px;
+  max-width: 90%;
+}
+
+.BookMarkLikeSave {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.BookMarkLikeSave_circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+
+  background-color: var(--dark-blue);
+  cursor: pointer;
+}
+
+.CompanyComponent {
+  padding: 40px 20px;
+}
+
+.CompanyComponent img {
+  height: 120px;
+  width: 100px;
+  object-fit: contain;
+  aspect-ratio: 1/1;
+}
+
+.CompanyComponent h2{
+  text-align: center;
+  color: var(--dark-blue);
+}
+
+.company_list{
+  box-sizing: border-box;
+  display: grid;
+  justify-content: center;
+  gap: 40px;
+}
+
+.ProductionCountrys{
+  box-sizing: border-box;
+  padding: 30px 20px;
+}
+
+.ProductionCountrys h2{
+  text-align: center;
+  color: var(--dark-blue);
+}
+
+.prod_country_list{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: left;
+  color: var(--dark-blue);
+}
+
+@media (max-width: 600px) {
+  .Single_Movie_Title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .date_genre_runtime {
+    color: #fff;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    font-size: 14px;
+  }
+
+  .CompanyComponent img {
+    height: 70px;
+    aspect-ratio: 1/1;
+  }
+
+  .Single_Movie_Title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .date_genre_runtime {
+    color: #fff;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    font-size: 14px;
+  }
+}
