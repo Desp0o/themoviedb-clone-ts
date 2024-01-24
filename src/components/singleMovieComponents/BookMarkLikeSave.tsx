@@ -2,6 +2,7 @@ import saveDashBars from "../../assets/icons/save-list-dash.svg"
 import likeIcon from "../../assets/icons/heart.svg"
 import bookMarkIcon from "../../assets/icons/bookmark.svg"
 import starIcon from "../../assets/icons/star.svg"
+import "./singleMovComp.css"
 
 const BookMarkLikeSave = () => {
 

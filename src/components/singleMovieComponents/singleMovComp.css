@@ -1,0 +1,123 @@
+.Single_Movie_Title_date {
+  display: flex;
+  gap: 10px;
+}
+
+.Single_Movie_Title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.Single_Movie_release_date {
+  font-size: 35px;
+  opacity: 0.8;
+  color: #fff;
+}
+
+.date_genre_runtime {
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.single_movie_page_rating_container {
+  margin-top: 15px;
+  height: fit-content;
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.backdrop_inner_right_side {
+  margin-top: 75px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tagline_text {
+  margin-top: 15px;
+  opacity: 1;
+  font-style: italic;
+  font-size: 17.5px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.single_page_overview h3 {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.single_page_overview p {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #fff;
+
+  width: 700px;
+  max-width: 100%;
+}
+
+.BookMarkLikeSave {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.BookMarkLikeSave_circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+
+  background-color: var(--dark-blue);
+  cursor: pointer;
+}
+
+.CompanyComponent {
+  padding: 40px 20px;
+  display: grid;
+  justify-content: center;
+  gap: 30px;
+}
+
+.CompanyComponent img {
+  height: 120px;
+  width: auto;
+  object-fit: contain;
+  aspect-ratio: 1/1;
+}
+
+@media (max-width: 600px) {
+  .Single_Movie_Title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .date_genre_runtime {
+    color: #fff;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    font-size: 14px;
+  }
+
+  .backdrop_inner {
+    flex-direction: column;
+  }
+
+  .CompanyComponent img {
+    height: 70px;
+    aspect-ratio: 1/1;
+  }
+}

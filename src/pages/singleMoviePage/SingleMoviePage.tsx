@@ -9,6 +9,7 @@ import TagLine from "../../components/singleMovieComponents/TagLine";
 import SingleMovieOverView from "../../components/singleMovieComponents/SingleMovieOverView";
 import BookMarkLikeSave from "../../components/singleMovieComponents/BookMarkLikeSave";
 import CompanyComponent from "../../components/singleMovieComponents/CompanyComponent";
+import ProductionCountrys from "../../components/singleMovieComponents/ProductionCountrys";
 
 export default function SingleMoviePage() {
   const { id } = useParams();
@@ -73,6 +74,7 @@ export default function SingleMoviePage() {
             </div>
           </div>
           <CompanyComponent companyList={data?.data.production_companies} />
+          <ProductionCountrys countryList={data?.data.production_countries} />
         </div>
       )}
     </>

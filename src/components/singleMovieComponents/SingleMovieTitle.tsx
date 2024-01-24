@@ -1,6 +1,5 @@
 import React from "react";
-import "../../pages/singleMoviePage/SingleMoviePage.css";
-
+import "./singleMovComp.css"
 
 interface Genre {
   name: string;
