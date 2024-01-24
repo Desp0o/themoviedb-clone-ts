@@ -11,24 +11,30 @@ import BookMarkLikeSave from "../../components/singleMovieComponents/BookMarkLik
 import CompanyComponent from "../../components/singleMovieComponents/CompanyComponent";
 import ProductionCountrys from "../../components/singleMovieComponents/ProductionCountrys";
 
-
+const apiKey = import.meta.env.VITE_API_KEY2;
 export default function SingleMoviePage() {
   const { id } = useParams();
-  const apiKey = import.meta.env.VITE_API_KEY2;
+  
 
-  const { isLoading, isFetching, data } = useQuery("single-movie", () => {
+  const { isLoading, data } = useQuery("single-movie", () => {
     return axios.get(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`,
+      {
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
+          accept: "application/json",
+        },
+      }
     );
-  });
-
-  console.log(data?.data);
+  },
+  
+);
 
   const roundedRating = Math.round(data?.data.vote_average * 10);
 
   return (
     <>
-      {isLoading || isFetching ? (
+      {isLoading ? (
         <LoadingComponent />
       ) : (
         <div className="SingleMoviePage">
