@@ -34,7 +34,7 @@ const SingleMovieTitle: React.FC<props> = ({ title, date, genre = [], country = 
   
 
   return (
-    <div>
+    <div className="single_movie_info">
       <div className="Single_Movie_Title_date">
         <p className="Single_Movie_Title">{title}</p>
         <p className="Single_Movie_release_date">({date?.substring(0, 4)})</p>

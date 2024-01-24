@@ -5,7 +5,8 @@
 }
 
 .SingleMoviePage_backdrop {
-  padding: 30px 0;
+  box-sizing: border-box;
+  padding: 30px 20px;
   margin-top: 60px;
   position: relative;
   width: 100%;
@@ -20,6 +21,7 @@
   height: 100%;
   background-color: #062542b9;
 }
+
 
 .backdrop_image {
   position: absolute;
@@ -40,7 +42,9 @@
   height: 100%;
   background-color: grey;
 }
+
 .backdrop_inner {
+  box-sizing: border-box;
   position: relative;
   width: 100%;
   max-width: 1300px;
@@ -50,13 +54,31 @@
   gap: 40px;
 }
 
+
+.backdrop_inner_right_side {
+  overflow: hidden;
+  width: 100%;
+}
+
+.backdrop_inner_poster_container{
+  width: 300px;
+  height: 450px;
+
+  background-image: url("../../assets/images/glyphicons-picture.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .single_poster {
   width: 300px;
   height: 450px;
   border-radius: 10px;
 }
 
-@media (max-width: 600px) {
+
+@media (max-width: 700px) {
+  .backdrop_inner_poster_container, 
   .single_poster {
     margin: 0 auto;
     width: 250px;
@@ -64,33 +86,10 @@
     border-radius: 10px;
   }
   .backdrop_inner {
+    flex-direction: column;
     padding: 0 20px;
   }
   .backdrop_inner_right_side {
     margin-top: 0;
-  }
-
-  .Single_Movie_Title {
-    font-size: 24px;
-    font-weight: 700;
-    color: #fff;
-  }
-
-  .date_genre_runtime {
-    color: #fff;
-
-    display: flex;
-    align-items: flex-start;
-    gap: 5px;
-    font-size: 14px;
-  }
-
-  .backdrop_inner {
-    flex-direction: column;
-  }
-
-  .CompanyComponent img {
-    height: 70px;
-    aspect-ratio: 1/1;
   }
 }

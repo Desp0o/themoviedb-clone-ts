@@ -11,6 +11,7 @@ import BookMarkLikeSave from "../../components/singleMovieComponents/BookMarkLik
 import CompanyComponent from "../../components/singleMovieComponents/CompanyComponent";
 import ProductionCountrys from "../../components/singleMovieComponents/ProductionCountrys";
 
+
 export default function SingleMoviePage() {
   const { id } = useParams();
   const apiKey = import.meta.env.VITE_API_KEY2;
@@ -40,11 +41,16 @@ export default function SingleMoviePage() {
             <div className="SingleMoviePage_backdrop_overlay" />
 
             <div className="backdrop_inner">
-              <img
-                src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${data?.data.poster_path}`}
-                className="single_poster"
-                alt="single_poster"
-              />
+
+              <div className="backdrop_inner_poster_container">
+                <img
+                  src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${data?.data.poster_path}`}
+                  className="single_poster"
+                  alt="single_poster"
+                  style={{backgroundImage : `${ProductionCountrys}`}}
+                />
+              </div>
+              
 
               <div className="backdrop_inner_right_side">
                 <SingleMovieTitle

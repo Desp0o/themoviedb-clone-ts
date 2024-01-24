@@ -1,12 +1,20 @@
+.single_movie_info{
+  width: 100%;
+  box-sizing: border-box !important;
+}
+
 .Single_Movie_Title_date {
+  box-sizing: border-box;
   display: flex;
   gap: 10px;
+  width: fit-content;
 }
 
 .Single_Movie_Title {
   font-size: 34px;
   font-weight: 700;
   color: #fff;
+  
 }
 
 .Single_Movie_release_date {
@@ -17,8 +25,9 @@
 
 .date_genre_runtime {
   color: #fff;
-
+  width: fit-content;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 5px;
 }
@@ -33,12 +42,6 @@
   gap: 20px;
 }
 
-.backdrop_inner_right_side {
-  margin-top: 75px;
-  display: flex;
-  flex-direction: column;
-}
-
 .tagline_text {
   margin-top: 15px;
   opacity: 1;
@@ -48,19 +51,23 @@
   font-weight: 500;
 }
 
+.single_page_overview{
+  box-sizing: border-box;
+}
+
 .single_page_overview h3 {
   margin-top: 15px;
   font-size: 20px;
   color: #fff;
 }
 
-.single_page_overview p {
+.movie_overview{
   margin-top: 15px;
   font-size: 16px;
   color: #fff;
 
   width: 700px;
-  max-width: 100%;
+  max-width: 90%;
 }
 
 .BookMarkLikeSave {
@@ -84,16 +91,39 @@
 
 .CompanyComponent {
   padding: 40px 20px;
-  display: grid;
-  justify-content: center;
-  gap: 30px;
 }
 
 .CompanyComponent img {
   height: 120px;
-  width: auto;
+  width: 100px;
   object-fit: contain;
   aspect-ratio: 1/1;
+}
+
+.CompanyComponent h2{
+  text-align: center;
+  color: var(--dark-blue);
+}
+
+.company_list{
+  display: grid;
+  justify-content: center;
+  gap: 40px;
+}
+
+.ProductionCountrys h2{
+  text-align: center;
+  color: var(--dark-blue);
+}
+
+.prod_country_list{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: left;
+  color: var(--dark-blue);
 }
 
 @media (max-width: 600px) {
@@ -112,12 +142,23 @@
     font-size: 14px;
   }
 
-  .backdrop_inner {
-    flex-direction: column;
-  }
-
   .CompanyComponent img {
     height: 70px;
     aspect-ratio: 1/1;
+  }
+
+  .Single_Movie_Title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .date_genre_runtime {
+    color: #fff;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    font-size: 14px;
   }
 }
