@@ -11,11 +11,11 @@ interface producCountry {
 }
 
 interface props {
-  title: string;
+  title?: string;
   date?: string;
   genre?: Genre[];
   country?: producCountry[];
-  runtime: number;
+  runtime?: number;
 }
 
 const SingleMovieTitle: React.FC<props> = ({ title, date, genre = [], country = [], runtime }) => {
@@ -41,10 +41,10 @@ const SingleMovieTitle: React.FC<props> = ({ title, date, genre = [], country = 
       </div>
 
       <div className="date_genre_runtime">
-        <p>{convertedDate} ({country[0].iso_3166_1})</p>
+        <p>{convertedDate} ({country[0]?.iso_3166_1})</p>
         <p>•</p>
         {genre?.map((item) => {
-          return <p key={item.id}>{item.name}</p>;
+          return <p key={item?.id}>{item?.name}</p>;
         })}
         <p>•</p>
         <p>{hours!}h {minutes!}m</p>

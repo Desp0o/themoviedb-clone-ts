@@ -12,10 +12,10 @@ interface SubLinkPannelProps {
   path4: string
 }
 
-export const SubLinkPannel: React.FC<SubLinkPannelProps> = ({link1, link2, link3, link4}) => {
+export const SubLinkPannel: React.FC<SubLinkPannelProps> = ({link1, path1, link2, link3, link4}) => {
   return (
     <div className='subLinkPannel'>
-      {link1 ? <Link to='/' className='subLinkItem'>{link1}</Link> : <></>}
+      {link1 ? <Link to={path1} className='subLinkItem'>{link1}</Link> : <></>}
       {link2 ? <Link to='/' className='subLinkItem'>{link2}</Link> : <></>}
       {link3 ? <Link to='/' className='subLinkItem'>{link3}</Link> : <></>}
       {link4 ? <Link to='/' className='subLinkItem'>{link4}</Link> : <></>}

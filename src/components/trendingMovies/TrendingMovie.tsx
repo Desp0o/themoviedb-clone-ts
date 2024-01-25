@@ -31,9 +31,6 @@ export default function TrendingMovies() {
     refetch();
   };
 
-
-  
-
   const { isLoading, data, refetch } = useQuery(
     ["trending-movies", path],
     () => {
@@ -45,8 +42,6 @@ export default function TrendingMovies() {
       });
     }
   );
-
-  console.log(data);
 
   return (
     <div className="trending_movie_list">

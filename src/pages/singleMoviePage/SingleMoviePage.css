@@ -11,6 +11,8 @@
   position: relative;
   width: 100%;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .SingleMoviePage_backdrop_overlay {
@@ -91,5 +93,14 @@
   }
   .backdrop_inner_right_side {
     margin-top: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .backdrop_inner_poster_container,
+  .single_poster {
+    width: 200px;
+    height: 300px;
+    border-radius: 10px;
   }
 }

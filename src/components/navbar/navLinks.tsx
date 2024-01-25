@@ -30,6 +30,7 @@ export const NavLinks: React.FC<NavLinksProps> = ({linkName}) => {
 
     if(link === 'Movies'){
         link1Name = 'Popular'
+        path1Name = './pages/PopularMovies/'
         link2Name = 'Now Playing'
         link3Name = 'Upcoming'
         link4Name = 'Top Rated'
