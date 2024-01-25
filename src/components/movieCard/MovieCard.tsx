@@ -11,6 +11,7 @@ interface movieCardProps {
   title: string;
   date: string;
   movieId:number;
+  popularStyleWidth?: string;
 }
 
 const MovieCard: React.FC<movieCardProps> = ({
@@ -18,20 +19,21 @@ const MovieCard: React.FC<movieCardProps> = ({
   rating,
   title,
   date,
-  movieId
+  movieId,
+  popularStyleWidth
 }) => {
 
   return (
     <Link to={`/pages/singleMoviePage/${movieId}`}>
-    <div className="movie_card_container" >
-      <div className="movie_Card">
+    <div className={`movie_card_container ${popularStyleWidth}`} >
+      <div className={`movie_Card ${popularStyleWidth}`}>
         <img loading="lazy" src={image} alt="movie card" style={{backgroundImage: `url(${loadingImage})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}/>
-          <div className="movie_card_rating">
+          <div className={`movie_card_rating ${popularStyleWidth}`}>
             <RatingCircle rating={rating} width={38} height={38} CircleHeight={34} CircleWidth={34} />
           </div>
       </div>
 
-      <p className="movie_card_title">{title}</p>
+      <p className={`movie_card_title ${popularStyleWidth}`}>{title}</p>
       <p className="movie_card_date">{date}</p>
     </div>
     </Link>

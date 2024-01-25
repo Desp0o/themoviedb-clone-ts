@@ -28,13 +28,14 @@ export default function PopularList() {
   return (
     <div className="">
       <button onClick={()=>fetchNextPage()}>next</button>
-      
+
       {data?.pages.map((page, pageIndex) => (
         <div className="PopularList" key={pageIndex}>
           {page.data.results.map((movie: any, index: number) => {
             const roundedRating = Math.round(movie.vote_average * 10);
             return (
               <MovieCard
+                popularStyleWidth="popular_page_style"
                 key={index}
                 title={movie.title}
                 image={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`}
