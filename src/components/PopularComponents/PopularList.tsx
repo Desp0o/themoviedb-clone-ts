@@ -5,7 +5,7 @@ import MovieCard from "../movieCard/MovieCard";
 
 export default function PopularList() {
 
-  const { data, isLoading, fetchNextPage } = useInfiniteQuery(["popular-movies-list"], ({ pageParam = 1 }) => {
+  const { data, fetchNextPage } = useInfiniteQuery(["popular-movies-list"], ({ pageParam = 1 }) => {
     return axios.get(
       `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${pageParam}`,
       {
