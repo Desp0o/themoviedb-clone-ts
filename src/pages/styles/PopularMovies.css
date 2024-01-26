@@ -9,10 +9,21 @@
     box-sizing: border-box;
     width: 100%;
     max-width: 1300px;
+    padding: 0 20px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-row: auto auto;
-    justify-content: flex-start;
-    gap: 20px 30px;
+    display: flex;
+    gap: 20px 20px;
+}
+
+@media (max-width:700px) {
+    .PopularMovies_inner{
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 1300px;
+        padding: 0 20px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px 20px;
+    }
 }

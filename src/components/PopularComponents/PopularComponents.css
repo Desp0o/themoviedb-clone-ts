@@ -13,14 +13,28 @@
     box-shadow: 0 2px 8px rgba(0,0,0,.1);
 }
 
-.PopularList{
-    grid-column-start: 2;
-    grid-column-end: 4;
-    box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 30px 30px;
+.popular_list_container{
+    width: 100%;
+}
 
+.PopularList{
+    width:100%;
+    box-sizing: border-box;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(165px, 185px));
+    gap: 20px;
+}
+
+
+@media (max-width:650px) {
+    .PopularList{
+        width:100%;
+        box-sizing: border-box;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fill, minmax(165px, 100%));
+        gap: 20px;
+    }
+    
 }

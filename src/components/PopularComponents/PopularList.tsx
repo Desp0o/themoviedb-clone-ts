@@ -26,7 +26,7 @@ export default function PopularList() {
   console.log(data);
 
   return (
-    <div className="">
+    <div className="popular_list_container">
       <button onClick={()=>fetchNextPage()}>next</button>
 
       {data?.pages.map((page, pageIndex) => (
@@ -42,6 +42,7 @@ export default function PopularList() {
                 rating={roundedRating}
                 date={movie.release_date}
                 movieId={movie.id}
+                overview={movie.overview}
               />
             );
           })}
