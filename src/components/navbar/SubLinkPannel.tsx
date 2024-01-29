@@ -7,9 +7,6 @@ interface SubLinkPannelProps {
   link3: string,
   link4: string,
   path1: string,
-  path2: string,
-  path3: string,
-  path4: string
 }
 
 export const SubLinkPannel: React.FC<SubLinkPannelProps> = ({link1, path1, link2, link3, link4}) => {
