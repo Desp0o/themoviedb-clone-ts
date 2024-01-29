@@ -1,17 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const optionSlicer = createSlice({
-    name: "optionSlcier",
+const optionSlice = createSlice({
+    name: "optionSlice",
     initialState: {
-        value: null,
+        value: 'popularityDescending',
     },
     reducers:{
         setOption(state, action) {
             state.value = action.payload;
-        },
+        }
     }
 })
 
 
-export const {setOption} = optionSlicer.actions
-export default optionSlicer.reducer
+export const { setOption } = optionSlice.actions;
+export default optionSlice.reducer;
