@@ -7,6 +7,12 @@
     justify-content: center;
 }
 
+.loadingNextPage{
+  width: fit-content;
+  height: fit-content;
+  margin: 40px auto 0 auto;
+}
+
 .lds-roller {
     display: inline-block;
     position: relative;

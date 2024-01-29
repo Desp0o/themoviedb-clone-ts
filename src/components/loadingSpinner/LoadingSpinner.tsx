@@ -1,8 +1,13 @@
+import React from "react";
 import "./LoadingSpinner.css";
 
-export default function LoadingSpinner() {
+interface spinnerProps {
+  loadingNextPage?: string
+}
+
+const LoadingSpinner: React.FC<spinnerProps> =({loadingNextPage}) => {
   return (
-    <div className="loading_spinner">
+    <div className={`loading_spinner ${loadingNextPage}`}>
       <div className="lds-roller">
         <div></div>
         <div></div>
@@ -16,3 +21,5 @@ export default function LoadingSpinner() {
     </div>
   );
 }
+
+export default LoadingSpinner

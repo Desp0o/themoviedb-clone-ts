@@ -43,6 +43,24 @@
     gap: 20px;
 }
 
+.fetch_next_movies{
+    margin-top: 30px;
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    border-radius: 5px;
+    border: unset;
+    outline: none;
+
+    background-color: #31B4E4;
+    color: var(--white);
+    font-size: 24px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
 
 @media (max-width:650px) {
     .PopularMovies_inner{

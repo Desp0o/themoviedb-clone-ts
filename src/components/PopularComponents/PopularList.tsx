@@ -5,27 +5,30 @@ import MovieCard from "../movieCard/MovieCard";
 import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
 
 export default function PopularList() {
-  const { data, isLoading, fetchNextPage } = useInfiniteQuery(
-    ["popular-movies-list"],
-    ({ pageParam = 1 }) => {
-      return axios.get(
-        `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${pageParam}`,
-        {
-          headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
-            Accept: "application/json",
-          },
-        }
-      );
-    },
-    {
-      getNextPageParam: (_lastPage, pages) => {
-        return pages.length + 1;
+  const { data, isLoading, fetchNextPage, isFetchingNextPage } =
+    useInfiniteQuery(
+      ["popular-movies-list"],
+      ({ pageParam = 1 }) => {
+        return axios.get(
+          `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${pageParam}`,
+          {
+            headers: {
+              Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
+              Accept: "application/json",
+            },
+          }
+        );
       },
-    }
-  );
+      {
+        getNextPageParam: (_lastPage, pages) => {
+          return pages.length + 1;
+        },
+      }
+    );
 
-  console.log(data);
+  if (isFetchingNextPage) {
+    console.log("hey its loading");
+  }
 
   return (
     <div className="popular_list_container">
@@ -33,8 +36,6 @@ export default function PopularList() {
         <LoadingSpinner />
       ) : (
         <>
-          <button onClick={() => fetchNextPage()}>next</button>
-
           {data?.pages.map((page, pageIndex) => (
             <div className="PopularList" key={pageIndex}>
               {page.data.results.map((movie: any, index: number) => {
@@ -54,6 +55,17 @@ export default function PopularList() {
               })}
             </div>
           ))}
+
+          {isFetchingNextPage ? (
+            <LoadingSpinner loadingNextPage="loadingNextPage" />
+          ) : (
+            <button
+              className="fetch_next_movies"
+              onClick={() => fetchNextPage()}
+            >
+              Load More
+            </button>
+          )}
         </>
       )}
     </div>
