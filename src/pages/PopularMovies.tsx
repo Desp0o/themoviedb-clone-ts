@@ -1,6 +1,6 @@
 import PopularFilter from "../components/PopularComponents/PopularFilter"
 import PopularList from "../components/PopularComponents/PopularList"
-import "./styles/PopularMovies.css"
+import "../components/PopularComponents/PopularComponents.css"
 
 export default function PopularMovies() {
   return (
