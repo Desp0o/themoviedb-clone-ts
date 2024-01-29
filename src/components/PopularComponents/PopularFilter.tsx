@@ -1,9 +1,11 @@
+import Filter from "./FilterComponent"
 import "./PopularComponents.css"
+import SortComponent from "./SortComponent"
 
 export default function PopularFilter() {
   return (
     <div className='PopularFilter'>
-        <div className='sort_popular'></div>
+        <Filter title="Sort" child={<SortComponent />}/>
     </div>
   )
 }

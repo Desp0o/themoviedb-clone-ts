@@ -5,7 +5,7 @@ import "../components/PopularComponents/PopularComponents.css"
 export default function PopularMovies() {
   return (
     <div className="PopularMovies">
-      <h2>Popular Movies</h2>
+      <h2 style={{textAlign: 'center'}}>Popular Movies</h2>
       <div className="PopularMovies_inner">
         
 
