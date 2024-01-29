@@ -17,15 +17,12 @@ export const NavLinks: React.FC<NavLinksProps> = ({linkName}) => {
         setIsHovered(false)
     }
 
-    let link = linkName
+    const link = linkName
     let link1Name = ''
     let link2Name = ''
     let link3Name = ''
     let link4Name = ''
     let path1Name = ''
-    let path2Name = ''
-    let path3Name = ''
-    let path4Name = ''
 
 
     if(link === 'Movies'){
@@ -57,11 +54,8 @@ export const NavLinks: React.FC<NavLinksProps> = ({linkName}) => {
                     link1={link1Name}
                     path1={path1Name}
                     link2={link2Name}
-                    path2={path2Name}
                     link3={link3Name}
-                    path3={path3Name}
                     link4={link4Name}
-                    path4={path4Name} 
                   />}
     </div>      
   )

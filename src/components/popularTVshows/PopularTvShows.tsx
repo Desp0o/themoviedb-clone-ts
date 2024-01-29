@@ -4,6 +4,14 @@ import "./PopularTvShows.css";
 import MovieCard from "../movieCard/MovieCard";
 import MovieListLoadingComponent from "../movieListLoading/MovieListLoadingComponent";
 
+interface movieProps {
+  vote_average: number;
+  original_name: string;
+  first_air_date: string;
+  id: number;
+  poster_path: string;
+}
+
 export default function PopularTvShows() {
   const { isLoading, data } = useQuery("popular-tvshows", () => {
     return axios.get("https://api.themoviedb.org/3/tv/popular", {
@@ -22,7 +30,7 @@ export default function PopularTvShows() {
         {isLoading ? (
           <MovieListLoadingComponent />
         ) : (
-          data?.data.results.map((item: any) => {
+          data?.data.results.map((item: movieProps) => {
             const roundedRating = Math.round(item.vote_average * 10);
 
             return (

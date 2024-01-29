@@ -4,6 +4,15 @@ import axios from "axios";
 import MovieCard from "../movieCard/MovieCard";
 import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
 
+interface movieProps {
+  vote_average: number;
+  title: string;
+  release_date: string;
+  id: number;
+  overview: string;
+  poster_path: string;
+}
+
 export default function PopularList() {
   const { data, isLoading, fetchNextPage, isFetchingNextPage } =
     useInfiniteQuery(
@@ -38,7 +47,7 @@ export default function PopularList() {
         <>
           {data?.pages.map((page, pageIndex) => (
             <div className="PopularList" key={pageIndex}>
-              {page.data.results.map((movie: any, index: number) => {
+              {page.data.results.map((movie: movieProps, index: number) => {
                 const roundedRating = Math.round(movie.vote_average * 10);
                 return (
                   <MovieCard

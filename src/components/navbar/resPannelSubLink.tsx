@@ -21,16 +21,13 @@ export const ResPannelSubLink: React.FC<resPannelSubLinkProps> = ({
     }
   };
 
-  let link = linkName;
+  const link = linkName;
 
   let link1Name = "";
   let link2Name = "";
   let link3Name = "";
   let link4Name = "";
-  let path1Name = "./pages/PopularMovies/";
-  let path2Name = "";
-  let path3Name = "";
-  let path4Name = "";
+  const path1Name = "./pages/PopularMovies/";
 
   if (link === "Movies") {
     link1Name = "Popular";
@@ -57,9 +54,9 @@ export const ResPannelSubLink: React.FC<resPannelSubLinkProps> = ({
 
       <div className="pannelInnerLinks">
         {link1Name && <Link to={path1Name}>{link1Name}</Link>}
-        {link2Name && <Link to={path2Name}>{link2Name}</Link>}
-        {link3Name && <Link to={path3Name}>{link3Name}</Link>}
-        {link4Name && <Link to={path4Name}>{link4Name}</Link>}
+        {link2Name && <Link to="/">{link2Name}</Link>}
+        {link3Name && <Link to="/">{link3Name}</Link>}
+        {link4Name && <Link to="/">{link4Name}</Link>}
       </div>
     </div>
   );
