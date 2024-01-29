@@ -1,12 +1,13 @@
 import PopularFilter from "../components/PopularComponents/PopularFilter"
 import PopularList from "../components/PopularComponents/PopularList"
-import "./styles/PopularMovies.css"
+import "../components/PopularComponents/PopularComponents.css"
 
 export default function PopularMovies() {
   return (
     <div className="PopularMovies">
+      <h2>Popular Movies</h2>
       <div className="PopularMovies_inner">
-        <h2>Popular Movies</h2>
+        
 
         <PopularFilter />
         <PopularList />
