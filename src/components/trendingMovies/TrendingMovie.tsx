@@ -5,6 +5,14 @@ import "./trendingMovies.css";
 import { useState } from "react";
 import MovieListLoadingComponent from "../movieListLoading/MovieListLoadingComponent";
 
+interface movieProps {
+  vote_average: number;
+  title: string;
+  release_date: string;
+  id: number;
+  poster_path: string;
+}
+
 export default function TrendingMovies() {
   const day = "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
   const week =
@@ -64,7 +72,7 @@ export default function TrendingMovies() {
         {isLoading ? (
           <MovieListLoadingComponent />
         ) : (
-          data?.data.results.map((item: any) => {
+          data?.data.results.map((item: movieProps) => {
             const roundedRating = Math.round(item.vote_average * 10);
 
             return (
