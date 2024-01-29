@@ -4,8 +4,8 @@ import axios from "axios";
 import MovieCard from "../movieCard/MovieCard";
 import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
 
-interface movieProps{
-  vote_average:number;
+interface movieProps {
+  vote_average: number;
   title: string;
   release_date: string;
   id: number;
