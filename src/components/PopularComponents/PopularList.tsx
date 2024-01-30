@@ -3,6 +3,7 @@ import { useInfiniteQuery } from "react-query";
 import axios from "axios";
 import MovieCard from "../movieCard/MovieCard";
 import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
+import { useSelector } from "react-redux";
 
 interface movieProps {
   vote_average: number;
@@ -11,6 +12,12 @@ interface movieProps {
   id: number;
   overview: string;
   poster_path: string;
+}
+
+interface RootState{
+  chooseOption: {
+    genre: string;
+  };
 }
 
 export default function PopularList() {
@@ -32,12 +39,11 @@ export default function PopularList() {
         getNextPageParam: (_lastPage, pages) => {
           return pages.length + 1;
         },
-      }
+        keepPreviousData: true 
+      },
     );
 
-  if (isFetchingNextPage) {
-    console.log("hey its loading");
-  }
+  
 
   return (
     <div className="popular_list_container">
@@ -45,6 +51,8 @@ export default function PopularList() {
         <LoadingSpinner />
       ) : (
         <>
+
+        
           {data?.pages.map((page, pageIndex) => (
             <div className="PopularList" key={pageIndex}>
               {page.data.results.map((movie: movieProps, index: number) => {
