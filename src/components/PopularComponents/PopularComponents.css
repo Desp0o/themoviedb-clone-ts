@@ -110,6 +110,21 @@
     padding: 0 10px;
 }
 
+.filter_with_genres{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.genres_item{
+    width: fit-content;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid var(--dark-blue);
+}
+
 @media (max-width:650px) {
     .PopularFilter{
         width: 100%;

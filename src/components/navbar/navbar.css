@@ -6,7 +6,7 @@
     height: 60px;
     background-color: var(--dark-blue);
     color: var(--white);
-    padding: 0 50px;
+    padding: 0 20px;
 }
 
 .navbarInner{
@@ -168,6 +168,9 @@
 }
 
 @media (max-width:768px) {
+    .navbar{
+        padding: 0;
+    }
     .navbarInner{
         padding: 0 20px;
     }

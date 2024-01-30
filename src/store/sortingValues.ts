@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const optionSlice = createSlice({
     name: "optionSlice",
     initialState: {
-        value: 'popularityDescending',
+        value: '',
     },
     reducers:{
         setOption(state, action) {
