@@ -4,10 +4,14 @@ const optionSlice = createSlice({
     name: "optionSlice",
     initialState: {
         value: '',
+        genre: ''
     },
     reducers:{
         setOption(state, action) {
             state.value = action.payload;
+        },
+        setGenre(state, action){
+            state.value = action.payload
         }
     }
 })
