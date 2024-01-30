@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-const genresArr = ["Action", "Adventure", "Animation"];
+const genresArr = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History",
+"Horror", "Music", "Mystery", "Romance", "Science Fiction", "TV Movie", "Thriller", "War", "Western"];
 
 const FilterComponentChild = () => {
   const [state, setState] = useState<HTMLDivElement | string>("");
