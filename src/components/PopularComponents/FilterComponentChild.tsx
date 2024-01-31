@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setGenre } from "../../store/sortingValues";
+import { removeGenre, setGenre } from "../../store/sortingValues";
 import VoteRange from "./averageVoteRange";
 
 const genresArr = [
@@ -92,39 +92,36 @@ const FilterComponentChild = () => {
     if (index === -1) {
       // Genre not selected, add it
       setSelectedGenres([...selectedGenres, genreID]);
+      dispatch(setGenre(genreID));
     } else {
       // Genre already selected, remove it
+      dispatch(removeGenre(genreID));
       const updatedGenres = [...selectedGenres];
       updatedGenres.splice(index, 1);
       setSelectedGenres(updatedGenres);
     }
   };
 
-  const saveState = (genreID: number) => {
-    toggleGenre(genreID);
-    dispatch(setGenre(genreID));
-  };
-
   return (
     <div className="filter_elements">
       <div className="filter_elements_inner">
         <div>
-        <h4 style={{ marginBottom: "10px" }}>Genres</h4>
-        <div className="filter_with_genres">
-          {genresArr.map((genre, index) => {
-            const isSelected = selectedGenres.includes(genre.id);
+          <h4 style={{ marginBottom: "10px" }}>Genres</h4>
+          <div className="filter_with_genres">
+            {genresArr.map((genre, index) => {
+              const isSelected = selectedGenres.includes(genre.id);
 
-            return (
-              <div
-                key={index}
-                className={`genres_item ${isSelected ? 'selected' : ''}`}
-                onClick={() => saveState(genre.id)}
-              >
-                {genre.name}
-              </div>
-            );
-          })}
-        </div>
+              return (
+                <div
+                  key={index}
+                  className={`genres_item ${isSelected ? "selected" : ""}`}
+                  onClick={() => toggleGenre(genre.id)}
+                >
+                  {genre.name}
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         <div className="range_for_vote">
