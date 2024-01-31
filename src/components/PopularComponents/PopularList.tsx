@@ -34,8 +34,8 @@ export default function PopularList() {
         },
       }
     );
-    
 
+    
   return (
     <div className="popular_list_container">
       {isLoading ? (

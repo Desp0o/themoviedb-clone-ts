@@ -2,14 +2,13 @@
     box-sizing: border-box;
     width: 100%;
 
-    padding: 100px 0 40px 0;
+    padding: 100px 20px 40px 20px;
 }
 
 .PopularMovies_inner{
     box-sizing: border-box;
     width: 100%;
     max-width: 1300px;
-    padding: 0 20px;
     margin: 0 auto;
     display: flex;
     gap: 20px 20px;
@@ -17,12 +16,15 @@
 
 .PopularFilter{
     width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     grid-column-start: 1;
 }
 
 .sort_popular{
     box-sizing: border-box;
-    width: 100%;
+    width: 260px;
     max-height: 50px;
 
     border-radius: 5px;
@@ -141,7 +143,53 @@
     color: var(--white);
 }
 
+.range_for_vote{
+    width: 100%;
+}
+
+.range_for_vote_inner{
+    width: 100%;
+}
+
+.vote_ragne_container{
+    width: 100%;
+    position: relative;
+}
+
+.vote_range_class{
+    width: 100%;
+}
+
+.bars{
+    box-sizing: border-box;
+    padding: 0 2px;
+    width: 100%;
+    bottom: 32px;
+    z-index: -1;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    color: #b3b6b9;
+}
+
+.vote_numbers{  
+    color: #b3b6b9;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 2px 0 2px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.vote_five{
+    margin-right: 15px;
+}
+
 @media (max-width:650px) {
+    .sort_popular{
+        width: 100%;
+    }
     .PopularFilter{
         width: 100%;
     }
