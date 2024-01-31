@@ -99,7 +99,7 @@ const FilterComponentChild = () => {
     }
   };
 
-  const saveState = (index: number, genreID: number) => {
+  const saveState = (genreID: number) => {
     toggleGenre(genreID);
     dispatch(setGenre(genreID));
   };
@@ -116,7 +116,7 @@ const FilterComponentChild = () => {
               <div
                 key={index}
                 className={`genres_item ${isSelected ? 'selected' : ''}`}
-                onClick={() => saveState(index, genre.id)}
+                onClick={() => saveState(genre.id)}
               >
                 {genre.name}
               </div>
