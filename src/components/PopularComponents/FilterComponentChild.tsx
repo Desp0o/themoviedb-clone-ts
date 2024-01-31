@@ -81,16 +81,26 @@ const genresArr = [
   },
 ];
 
-
 const FilterComponentChild = () => {
-  const [selectedGenreIndex, setSelectedGenreIndex] = useState<null | number>(
-    null
-  );
+  const [selectedGenres, setSelectedGenres] = useState<number[]>([]);
 
   const dispatch = useDispatch();
 
+  const toggleGenre = (genreID: number) => {
+    const index = selectedGenres.indexOf(genreID);
+    if (index === -1) {
+      // Genre not selected, add it
+      setSelectedGenres([...selectedGenres, genreID]);
+    } else {
+      // Genre already selected, remove it
+      const updatedGenres = [...selectedGenres];
+      updatedGenres.splice(index, 1);
+      setSelectedGenres(updatedGenres);
+    }
+  };
+
   const saveState = (index: number, genreID: number) => {
-    setSelectedGenreIndex(index);
+    toggleGenre(genreID);
     dispatch(setGenre(genreID));
   };
 
@@ -100,12 +110,12 @@ const FilterComponentChild = () => {
         <h4 style={{ marginBottom: "10px" }}>Genres</h4>
         <div className="filter_with_genres">
           {genresArr.map((genre, index) => {
+            const isSelected = selectedGenres.includes(genre.id);
+
             return (
               <div
                 key={index}
-                className={`genres_item ${
-                  selectedGenreIndex === index ? "selected" : ""
-                }`}
+                className={`genres_item ${isSelected ? 'selected' : ''}`}
                 onClick={() => saveState(index, genre.id)}
               >
                 {genre.name}
