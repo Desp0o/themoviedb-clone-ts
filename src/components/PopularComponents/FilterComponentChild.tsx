@@ -108,6 +108,7 @@ const FilterComponentChild = () => {
   return (
     <div className="filter_elements">
       <div className="filter_elements_inner">
+        <div>
         <h4 style={{ marginBottom: "10px" }}>Genres</h4>
         <div className="filter_with_genres">
           {genresArr.map((genre, index) => {
@@ -123,6 +124,7 @@ const FilterComponentChild = () => {
               </div>
             );
           })}
+        </div>
         </div>
 
         <div className="range_for_vote">
