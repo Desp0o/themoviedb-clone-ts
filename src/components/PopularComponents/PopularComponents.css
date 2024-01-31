@@ -2,14 +2,13 @@
     box-sizing: border-box;
     width: 100%;
 
-    padding: 100px 0 40px 0;
+    padding: 100px 20px 40px 20px;
 }
 
 .PopularMovies_inner{
     box-sizing: border-box;
     width: 100%;
     max-width: 1300px;
-    padding: 0 20px;
     margin: 0 auto;
     display: flex;
     gap: 20px 20px;
@@ -22,7 +21,7 @@
 
 .sort_popular{
     box-sizing: border-box;
-    width: 100%;
+    width: 260px;
     max-height: 50px;
 
     border-radius: 5px;
