@@ -16,6 +16,9 @@
 
 .PopularFilter{
     width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     grid-column-start: 1;
 }
 
@@ -141,6 +144,9 @@
 }
 
 @media (max-width:650px) {
+    .sort_popular{
+        width: 100%;
+    }
     .PopularFilter{
         width: 100%;
     }
