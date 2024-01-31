@@ -161,8 +161,29 @@
 }
 
 .bars{
+    box-sizing: border-box;
+    padding: 0 2px;
+    width: 100%;
+    bottom: 32px;
+    z-index: -1;
+    position: absolute;
     display: flex;
     justify-content: space-between;
+    color: #b3b6b9;
+}
+
+.vote_numbers{  
+    color: #b3b6b9;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 2px 0 2px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.vote_five{
+    margin-right: 15px;
 }
 
 @media (max-width:650px) {
