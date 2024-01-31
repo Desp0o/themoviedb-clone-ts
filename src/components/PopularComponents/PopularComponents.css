@@ -143,6 +143,28 @@
     color: var(--white);
 }
 
+.range_for_vote{
+    width: 100%;
+}
+
+.range_for_vote_inner{
+    width: 100%;
+}
+
+.vote_ragne_container{
+    width: 100%;
+    position: relative;
+}
+
+.vote_range_class{
+    width: 100%;
+}
+
+.bars{
+    display: flex;
+    justify-content: space-between;
+}
+
 @media (max-width:650px) {
     .sort_popular{
         width: 100%;

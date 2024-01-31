@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setGenre } from "../../store/sortingValues";
+import VoteRange from "./averageVoteRange";
 
 const genresArr = [
   {
@@ -122,6 +123,10 @@ const FilterComponentChild = () => {
               </div>
             );
           })}
+        </div>
+
+        <div className="range_for_vote">
+          <VoteRange />
         </div>
       </div>
     </div>
