@@ -3,8 +3,9 @@ import { useInfiniteQuery } from "react-query"
 
 const FilteredQuery = () => {
 
-    const {data, isLoading} = useInfiniteQuery(['filtered-move-db'], ({pageParam = 1}) => { 
-        return axios.get(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pageParam}&sort_by=popularity.desc&with_genres=28%2C%2027` , 
+    const genres = [28,27, 12]
+    const {data} = useInfiniteQuery(['filtered-move-db'], ({pageParam = 1}) => { 
+        return axios.get(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pageParam}&sort_by=popularity.desc&with_genres=${genres}` , 
         {
             headers:{
                 Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
