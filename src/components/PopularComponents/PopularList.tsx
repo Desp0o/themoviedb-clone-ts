@@ -34,10 +34,7 @@ export default function PopularList() {
         },
       }
     );
-
-  if (isFetchingNextPage) {
-    console.log("hey its loading");
-  }
+    
 
   return (
     <div className="popular_list_container">
