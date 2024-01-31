@@ -3,6 +3,7 @@ import { useInfiniteQuery } from "react-query";
 import axios from "axios";
 import MovieCard from "../movieCard/MovieCard";
 import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
+import FilteredQuery from "./FilteredQuery";
 
 interface movieProps {
   vote_average: number;
@@ -74,6 +75,8 @@ export default function PopularList() {
           )}
         </>
       )}
+
+      <FilteredQuery />
     </div>
   );
 }
