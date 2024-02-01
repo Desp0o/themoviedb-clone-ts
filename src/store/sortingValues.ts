@@ -9,7 +9,7 @@ interface OptionState {
 const optionSlice = createSlice({
   name: "optionSlice",
   initialState: {
-    value: "",
+    value: "popularity.desc",
     genre: [],
     voteRange: 5,
   } as OptionState,

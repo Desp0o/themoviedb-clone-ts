@@ -37,10 +37,10 @@ const SortComponent: React.FC = () => {
         value={selectedOption}
         onChange={(e) => selectOption(e)}
       >
-        <option value="popularityDescending">Popularity Descending</option>
-        <option value="popularityAscending">Popularity Ascending</option>
-        <option value="ratingDescending">Rating Descending</option>
-        <option value="ratingAscending">Rating Ascending</option>
+        <option value="popularity.desc">Popularity Descending</option>
+        <option value="popularity.asc">Popularity Ascending</option>
+        <option value="vote_average.desc">Rating Descending</option>
+        <option value="vote_average.asc">Rating Ascending</option>
       </select>
     </div>
   );
