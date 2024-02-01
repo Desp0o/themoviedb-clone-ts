@@ -112,6 +112,12 @@
     padding: 0 10px;
 }
 
+.filter_elements_inner{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
 .filter_elements{
     box-sizing: border-box;
     padding: 15px;
