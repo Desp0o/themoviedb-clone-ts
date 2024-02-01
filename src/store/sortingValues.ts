@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface OptionState {
-  value: string;
+  value: string | undefined;
   genre: string[];
   voteRange: number;
 }
@@ -9,9 +9,9 @@ interface OptionState {
 const optionSlice = createSlice({
   name: "optionSlice",
   initialState: {
-    value: "popularity.desc",
+    value: undefined,
     genre: [],
-    voteRange: 5,
+    voteRange: 0,
   } as OptionState,
   reducers: {
     setOption(state, action) {

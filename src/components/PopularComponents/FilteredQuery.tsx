@@ -4,11 +4,12 @@ import { useSelector } from "react-redux";
 import MovieCard from "../movieCard/MovieCard";
 import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
 import { useEffect, useState } from "react";
+import ButtonFilter from "./ButtonFilter";
 
 interface RootState {
   chooseOption: {
     genre: string[];
-    voteRange: number;
+    voteRange: number | string;
     value: string;
   };
 }
@@ -23,16 +24,20 @@ interface movieProps {
 }
 
 const FilteredQuery = () => {
+  const [classForFilterBtn, setClassForFilterBtn] = useState('')
   const genre = useSelector((state: RootState) => state.chooseOption.genre);
-  const voteRangeValue = useSelector((state: RootState) => state.chooseOption.voteRange);
-  const sortMethod = useSelector((state: RootState) => state.chooseOption.value);
+  const voteRangeValue = useSelector(
+    (state: RootState) => state.chooseOption.voteRange
+  );
+  const sortMethod = useSelector(
+    (state: RootState) => state.chooseOption.value
+  );
 
   const { data, error, isLoading, isFetchingNextPage, fetchNextPage } =
     useInfiniteQuery(
       ["filtered-move-db", [genre, voteRangeValue, sortMethod]],
       ({ pageParam = 1 }) => {
         return axios.get(
-          
           `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pageParam}&sort_by=${sortMethod}&vote_average.gte=${voteRangeValue}&with_genres=${genre}`,
           {
             headers: {
@@ -49,17 +54,21 @@ const FilteredQuery = () => {
       }
     );
 
-    if(error){
-      console.log(error);
+  if (error) {
+    console.log(error);
+  }
+
+  useEffect(() => {
+    if (
+      genre.length !== 0 ||
+      voteRangeValue !== 0 ||
+      sortMethod !== undefined
+    ) {
+      console.log("Hoorah");
+      setClassForFilterBtn('ButtonFilter open')
     }
-
-    console.log(data);
-    
-
-    useEffect(()=>{
-      console.log(genre);
-      
-    },[genre])
+    console.log(genre);
+  }, [genre, voteRangeValue, sortMethod]);
 
   return (
     <>
@@ -99,6 +108,8 @@ const FilteredQuery = () => {
           )}
         </>
       )}
+
+      <ButtonFilter nameOfClass={classForFilterBtn}/>
     </>
   );
 };

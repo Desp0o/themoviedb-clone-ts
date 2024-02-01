@@ -2,11 +2,17 @@ import { useEffect, ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setRange } from "../../store/sortingValues";
 
+interface RootState {
+  chooseOption:{
+    voteRange:  number;
+  }
+}
+
 const VoteRange = () => {
   const bars = "|".repeat(10);
 
   const voteRangeValue = useSelector(
-    (state: any) => state.chooseOption.voteRange
+    (state: RootState) => state.chooseOption.voteRange
   );
   const dispatch = useDispatch();
 
