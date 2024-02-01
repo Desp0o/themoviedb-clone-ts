@@ -3,13 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 interface OptionState {
   value: string;
   genre: string[];
+  voteRange: number;
 }
 
 const optionSlice = createSlice({
   name: "optionSlice",
   initialState: {
     value: "",
-    genre: [] // Initialize with an empty array
+    genre: [],
+    voteRange: 5,
   } as OptionState,
   reducers: {
     setOption(state, action) {
@@ -21,9 +23,12 @@ const optionSlice = createSlice({
     removeGenre(state, action) {
       const genreToRemove = action.payload;
       state.genre = state.genre.filter((genre) => genre !== genreToRemove);
+    },
+    setRange(state, action){
+      state.voteRange = action.payload
     }
   }
 });
 
-export const { setOption, setGenre, removeGenre } = optionSlice.actions;
+export const { setOption, setGenre, removeGenre, setRange } = optionSlice.actions;
 export default optionSlice.reducer;

@@ -8,6 +8,7 @@ import { useEffect } from "react";
 interface RootState {
   chooseOption: {
     genre: string[];
+    voteRange: number;
   };
 }
 
@@ -22,13 +23,15 @@ interface movieProps {
 
 const FilteredQuery = () => {
   const genre = useSelector((state: RootState) => state.chooseOption.genre);
+  const voteRangeValue = useSelector((state: RootState) => state.chooseOption.voteRange);
 
-  const { data, isLoading, isFetchingNextPage, fetchNextPage } =
+  const { data, error, isLoading, isFetchingNextPage, fetchNextPage } =
     useInfiniteQuery(
-      ["filtered-move-db", genre],
+      ["filtered-move-db", [genre, voteRangeValue]],
       ({ pageParam = 1 }) => {
         return axios.get(
-          `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pageParam}&sort_by=popularity.desc&with_genres=${genre}`,
+          `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pageParam}&sort_by=popularity.desc&vote_average.gte=${voteRangeValue}&with_genres=${genre}`,
+          
           {
             headers: {
               Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
@@ -43,6 +46,13 @@ const FilteredQuery = () => {
         },
       }
     );
+
+    if(error){
+      console.log(error);
+    }
+
+    console.log(data);
+    
 
     useEffect(()=>{
       console.log(genre);

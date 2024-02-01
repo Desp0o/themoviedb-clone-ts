@@ -4,10 +4,15 @@ import MovieQueryDB from "./MovieQueryDB";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
+interface RootState {
+  chooseOption:{
+    genre: []
+  }
+}
 
 export default function PopularList() {
   
-  const genre = useSelector( state => state.chooseOption.genre)
+  const genre = useSelector( (state: RootState) => state.chooseOption.genre)
   const [hide, setHide] = useState(false)
 
   useEffect(() => {
