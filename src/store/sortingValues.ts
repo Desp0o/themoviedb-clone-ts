@@ -4,6 +4,7 @@ interface OptionState {
   value: string | undefined;
   genre: string[];
   voteRange: number;
+  isFiltering: boolean;
 }
 
 const optionSlice = createSlice({
@@ -12,6 +13,7 @@ const optionSlice = createSlice({
     value: undefined,
     genre: [],
     voteRange: 0,
+    isFiltering: false,
   } as OptionState,
   reducers: {
     setOption(state, action) {
@@ -26,9 +28,15 @@ const optionSlice = createSlice({
     },
     setRange(state, action){
       state.voteRange = action.payload
+    },
+    setIsFilteringTrue(state,){
+      state.isFiltering = true
+    },
+    setIsFilteringFalse(state,){
+      state.isFiltering = false
     }
   }
 });
 
-export const { setOption, setGenre, removeGenre, setRange } = optionSlice.actions;
+export const { setOption, setGenre, removeGenre, setRange, setIsFilteringTrue, setIsFilteringFalse } = optionSlice.actions;
 export default optionSlice.reducer;

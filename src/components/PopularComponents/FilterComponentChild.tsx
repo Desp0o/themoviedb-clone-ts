@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { removeGenre, setGenre } from "../../store/sortingValues";
+import { removeGenre, setGenre, setIsFilteringTrue } from "../../store/sortingValues";
 import VoteRange from "./averageVoteRange";
 
 const genresArr = [
@@ -100,6 +100,8 @@ const FilterComponentChild = () => {
       updatedGenres.splice(index, 1);
       setSelectedGenres(updatedGenres);
     }
+
+    dispatch(setIsFilteringTrue())
   };
 
   return (

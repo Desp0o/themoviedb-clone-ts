@@ -1,6 +1,6 @@
 import { useEffect, ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setRange } from "../../store/sortingValues";
+import { setRange, setIsFilteringTrue } from "../../store/sortingValues";
 
 interface RootState {
   chooseOption:{
@@ -18,6 +18,7 @@ const VoteRange = () => {
 
   const handleVoteChange = (event: ChangeEvent<HTMLInputElement>) => {
     dispatch(setRange(Number(event.target.value)));
+    dispatch(setIsFilteringTrue())
   };
 
   useEffect(() => {

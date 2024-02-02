@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setOption } from "../../store/sortingValues";
+import { setOption, setIsFilteringTrue } from "../../store/sortingValues";
 import { ChangeEvent, useEffect } from "react";
 
 interface inputProps {
@@ -26,6 +26,7 @@ const SortComponent: React.FC = () => {
 
   const selectOption = (e: inputProps["e"]) => {
     dispatch(setOption(e.target.value));
+    dispatch(setIsFilteringTrue())
   };
 
   return (

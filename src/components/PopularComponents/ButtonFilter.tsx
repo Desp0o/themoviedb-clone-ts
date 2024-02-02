@@ -1,12 +1,27 @@
-import React from "react";
 
-interface BtnFilterProps {
-    nameOfClass: string;
+import { useSelector, useDispatch } from "react-redux";
+import { setIsFilteringFalse } from "../../store/sortingValues";
+import { setLoadFilterData } from "../../store/loadContent";
+
+interface RootState {
+  chooseOption: {
+    isFiltering:string
+  }
 }
 
-const ButtonFilter: React.FC<BtnFilterProps> = ({nameOfClass}) => {
+const ButtonFilter = () => {
+
+  const dispatch = useDispatch()
+
+  const closeButton = () => {
+    dispatch(setIsFilteringFalse())
+    dispatch(setLoadFilterData())
+  }
+
+  const buttonClass = useSelector( (state: RootState) => state.chooseOption.isFiltering)
+
   return (
-    <div className={`ButtonFilter ${nameOfClass}`}>Search</div>
+    <div className={buttonClass ? 'ButtonFilter open' : 'ButtonFilter' } onClick={closeButton}>Search</div>
   )
 }
 
