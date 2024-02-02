@@ -38,7 +38,7 @@ export default function SingleMoviePage() {
 
   return (
     <>
-    <ScrollToTop />
+      <ScrollToTop />
       <div className="SingleMoviePage">
         <div
           className="SingleMoviePage_backdrop"
@@ -56,16 +56,21 @@ export default function SingleMoviePage() {
 
           <div className="backdrop_inner">
             <div className="backdrop_inner_poster_container">
-              <img
-                src={`${
-                  isLoading
-                    ? loadingImagePattern
-                    : `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${data?.data.poster_path}`
-                }`}
-                className="single_poster"
-                alt="single_poster"
-                style={isLoading ? { objectFit: 'contain' } : {}}
-              />
+              {isLoading ? (
+                <img
+                  loading="eager"
+                  src={loadingImagePattern}
+                  className="single_poster"
+                  alt="single_poster"
+                  style={isLoading ? { objectFit: "contain" } : {}}
+                />
+              ) : (
+                <img
+                  src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${data?.data.poster_path}`}
+                  className="single_poster"
+                  alt="single_poster"
+                />
+              )}
             </div>
 
             <div className="backdrop_inner_right_side">
