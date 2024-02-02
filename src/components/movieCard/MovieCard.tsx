@@ -13,6 +13,7 @@ interface movieCardProps {
   movieId: number;
   popularStyleWidth?: string;
   overview?:string;
+  isTvShow?: boolean;
 }
 
 const MovieCard: React.FC<movieCardProps> = ({
@@ -22,10 +23,11 @@ const MovieCard: React.FC<movieCardProps> = ({
   date,
   movieId,
   popularStyleWidth,
-  overview
+  overview,
+  isTvShow
 }) => {
   return (
-    <Link to={`/pages/singleMoviePage/${movieId}`}>
+    <Link to={isTvShow ? `/pages/SingleTvPage/${movieId}` : `/pages/singleMoviePage/${movieId}`}>
       <div className={`movie_card_container ${popularStyleWidth}`}>
         <div className={`movie_Card ${popularStyleWidth}`}>
           <img

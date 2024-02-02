@@ -5,6 +5,7 @@ import Navbar from "./components/navbar/navbar";
 import SingleMoviePage from "./pages/singleMoviePage/SingleMoviePage";
 import Footer from "./components/footer/Footer";
 import PopularMovies from "./pages/PopularMovies";
+import SingleTvPage from "./pages/SingleTvPage";
 
 const queryClient = new QueryClient()
 
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/pages/singleMoviePage/:id" element={<SingleMoviePage />} />
+          <Route path="/pages/SingleTvPage/:id" element={<SingleTvPage />} />
           <Route path="/pages/PopularMovies/" element={<PopularMovies />} />
         </Routes>
         <Footer />

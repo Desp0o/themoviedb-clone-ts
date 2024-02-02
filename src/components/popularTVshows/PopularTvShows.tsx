@@ -41,6 +41,7 @@ export default function PopularTvShows() {
                 rating={roundedRating}
                 date={item.first_air_date}
                 movieId={item.id}
+                isTvShow={true}
               />
             );
           })
