@@ -21,10 +21,6 @@ const VoteRange = () => {
     dispatch(setIsFilteringTrue())
   };
 
-  useEffect(() => {
-    console.log(voteRangeValue);
-  }, [voteRangeValue]);
-
   return (
     <div className="range_for_vote_inner">
       <h4 style={{ marginBottom: "10px" }}>User Score</h4>

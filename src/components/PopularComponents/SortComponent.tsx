@@ -20,10 +20,6 @@ const SortComponent: React.FC = () => {
     (store: RootState) => store.chooseOption.value
   );
 
-  useEffect(() => {
-    console.log(selectedOption);
-  }, [selectedOption]);
-
   const selectOption = (e: inputProps["e"]) => {
     dispatch(setOption(e.target.value));
     dispatch(setIsFilteringTrue())

@@ -21,9 +21,6 @@ export default function PopularList() {
   const isLoadedFilteredContent = useSelector(
     (state: RootState) => state.loadContent.isLoadedFilteredContent
   );
-  useEffect(() => {
-    console.log(isLoadedFilteredContent);
-  }, [isLoadedFilteredContent]);
 
   return (
     <div className="popular_list_container">
