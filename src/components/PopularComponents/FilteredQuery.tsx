@@ -3,11 +3,19 @@ import { useInfiniteQuery } from "react-query";
 import { useSelector } from "react-redux";
 import MovieCard from "../movieCard/MovieCard";
 import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
-import { useEffect } from "react";
+
+import noImageOverlay from "../../assets/images/noImageOverlay.webp"
 
 interface RootState {
   chooseOption: {
     genre: string[];
+    voteRange: number | string;
+    value: string;
+    isFiltering: boolean;
+    filterDependencies: string | number[];
+  };
+  loadContent: {
+    isLoadedFilteredContent: boolean;
   };
 }
 
@@ -22,13 +30,22 @@ interface movieProps {
 
 const FilteredQuery = () => {
   const genre = useSelector((state: RootState) => state.chooseOption.genre);
+  const voteRangeValue = useSelector(
+    (state: RootState) => state.chooseOption.voteRange
+  );
+  const sortMethod = useSelector(
+    (state: RootState) => state.chooseOption.value
+  );
+  const filterDependencies = useSelector(
+    (state: RootState) => state.chooseOption.filterDependencies
+  );
 
-  const { data, isLoading, isFetchingNextPage, fetchNextPage } =
+  const { data, error, isLoading, isFetchingNextPage, fetchNextPage } =
     useInfiniteQuery(
-      ["filtered-move-db", genre],
+      ["filtered-move-db", filterDependencies],
       ({ pageParam = 1 }) => {
         return axios.get(
-          `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pageParam}&sort_by=popularity.desc&with_genres=${genre}`,
+          `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pageParam}&sort_by=${sortMethod}&vote_average.gte=${voteRangeValue}&with_genres=${genre}`,
           {
             headers: {
               Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
@@ -44,10 +61,10 @@ const FilteredQuery = () => {
       }
     );
 
-    useEffect(()=>{
-      console.log(genre);
-      
-    },[genre])
+  if (error) {
+    console.log(error);
+  }
+console.log(data);
 
   return (
     <>
@@ -64,7 +81,7 @@ const FilteredQuery = () => {
                     popularStyleWidth="popular_page_style"
                     key={index}
                     title={movie.title}
-                    image={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`}
+                    image={movie.poster_path !== null ? `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}` : noImageOverlay}
                     rating={roundedRating}
                     date={movie.release_date}
                     movieId={movie.id}

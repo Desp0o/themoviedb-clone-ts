@@ -3,7 +3,7 @@ import "./movieCard.css";
 import { Link } from "react-router-dom";
 import RatingCircle from "./RatingCircle";
 
-import loadingImage from "../../assets/images/glyphicons-picture.svg";
+import loadingImage from "../../assets/images/glyphicons-picture.webp";
 
 interface movieCardProps {
   image: string;

@@ -66,7 +66,6 @@
   width: 300px;
   height: 450px;
 
-  background-image: url("../../assets/images/glyphicons-picture.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -76,8 +75,17 @@
   width: 300px;
   height: 450px;
   border-radius: 10px;
+
+  object-fit: cover;
 }
 
+.single_poster_ladoing_pattern{
+  width: 300px;
+  height: 450px;
+  border-radius: 10px;
+
+  object-fit: contain;
+}
 
 @media (max-width: 700px) {
   .backdrop_inner_poster_container, 

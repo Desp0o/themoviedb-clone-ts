@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setOption } from "../../store/sortingValues";
+import { setOption, setIsFilteringTrue } from "../../store/sortingValues";
 import { ChangeEvent, useEffect } from "react";
 
 interface inputProps {
@@ -26,6 +26,7 @@ const SortComponent: React.FC = () => {
 
   const selectOption = (e: inputProps["e"]) => {
     dispatch(setOption(e.target.value));
+    dispatch(setIsFilteringTrue())
   };
 
   return (
@@ -37,10 +38,10 @@ const SortComponent: React.FC = () => {
         value={selectedOption}
         onChange={(e) => selectOption(e)}
       >
-        <option value="popularityDescending">Popularity Descending</option>
-        <option value="popularityAscending">Popularity Ascending</option>
-        <option value="ratingDescending">Rating Descending</option>
-        <option value="ratingAscending">Rating Ascending</option>
+        <option value="popularity.desc">Popularity Descending</option>
+        <option value="popularity.asc">Popularity Ascending</option>
+        <option value="vote_average.desc">Rating Descending</option>
+        <option value="vote_average.asc">Rating Ascending</option>
       </select>
     </div>
   );
