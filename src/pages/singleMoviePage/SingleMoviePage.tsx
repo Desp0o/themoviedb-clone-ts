@@ -10,6 +10,7 @@ import BookMarkLikeSave from "../../components/singleMovieComponents/BookMarkLik
 import CompanyComponent from "../../components/singleMovieComponents/CompanyComponent";
 import ProductionCountrys from "../../components/singleMovieComponents/ProductionCountrys";
 import loadingImagePattern from "../../assets/images/glyphicons-picture.webp";
+import ScrollToTop from "../../components/ScrollToTop";
 
 const apiKey = import.meta.env.VITE_API_KEY2;
 export default function SingleMoviePage() {
@@ -37,6 +38,7 @@ export default function SingleMoviePage() {
 
   return (
     <>
+    <ScrollToTop />
       <div className="SingleMoviePage">
         <div
           className="SingleMoviePage_backdrop"
