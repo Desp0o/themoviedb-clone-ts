@@ -64,7 +64,7 @@ export default function SingleMoviePage() {
                 }`}
                 className="single_poster"
                 alt="single_poster"
-                style={{ backgroundImage: `${ProductionCountrys}` }}
+                style={isLoading ? { objectFit: 'contain' } : {}}
               />
             </div>
 
