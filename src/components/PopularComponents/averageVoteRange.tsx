@@ -1,4 +1,4 @@
-import { useEffect, ChangeEvent } from "react";
+import { ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setRange, setIsFilteringTrue } from "../../store/sortingValues";
 

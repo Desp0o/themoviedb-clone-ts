@@ -2,7 +2,6 @@ import "./PopularComponents.css";
 import FilteredQuery from "./FilteredQuery";
 import MovieQueryDB from "./MovieQueryDB";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
 import ButtonFilter from "./ButtonFilter";
 
 interface RootState {

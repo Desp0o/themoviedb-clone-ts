@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setOption, setIsFilteringTrue } from "../../store/sortingValues";
-import { ChangeEvent, useEffect } from "react";
+import { ChangeEvent } from "react";
 
 interface inputProps {
   e: ChangeEvent<HTMLSelectElement>;
