@@ -38,7 +38,6 @@ const SortComponent: React.FC = () => {
         value={selectedOption}
         onChange={(e) => selectOption(e)}
       >
-        <option value={undefined}>Choose Method</option>
         <option value="popularity.desc">Popularity Descending</option>
         <option value="popularity.asc">Popularity Ascending</option>
         <option value="vote_average.desc">Rating Descending</option>

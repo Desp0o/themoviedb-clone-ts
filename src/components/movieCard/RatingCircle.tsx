@@ -11,7 +11,7 @@ interface ratingCircleProps {
 const RatingCircle: React.FC<ratingCircleProps> = ({rating, width, height, CircleWidth, CircleHeight}) => {
 
     const dasharray = Math.PI * 100;
-  const dashOffset = Math.PI * (100 - rating);
+  const dashOffset = rating ? Math.PI * (100 - rating) : 0;
 
   const [ratingColor, setRatingColor] = useState<string>("");
 
@@ -59,7 +59,7 @@ const RatingCircle: React.FC<ratingCircleProps> = ({rating, width, height, Circl
             />
           </svg>
 
-          <p className="movie_card_rating_txt">{rating}</p>
+          <p className="movie_card_rating_txt">{rating ? rating : 0}</p>
         </div>
   )
 }

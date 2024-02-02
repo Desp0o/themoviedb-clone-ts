@@ -4,17 +4,17 @@ import { useSelector } from "react-redux";
 import MovieCard from "../movieCard/MovieCard";
 import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
 
-
 interface RootState {
   chooseOption: {
     genre: string[];
     voteRange: number | string;
     value: string;
-    isFiltering: boolean
+    isFiltering: boolean;
+    filterDependencies: string | number[];
   };
-  loadContent:{
-    isLoadedFilteredContent:boolean
-  }
+  loadContent: {
+    isLoadedFilteredContent: boolean;
+  };
 }
 
 interface movieProps {
@@ -28,14 +28,19 @@ interface movieProps {
 
 const FilteredQuery = () => {
   const genre = useSelector((state: RootState) => state.chooseOption.genre);
-  const voteRangeValue = useSelector((state: RootState) => state.chooseOption.voteRange);
-  const sortMethod = useSelector((state: RootState) => state.chooseOption.value);
-  
-
+  const voteRangeValue = useSelector(
+    (state: RootState) => state.chooseOption.voteRange
+  );
+  const sortMethod = useSelector(
+    (state: RootState) => state.chooseOption.value
+  );
+  const filterDependencies = useSelector(
+    (state: RootState) => state.chooseOption.filterDependencies
+  );
 
   const { data, error, isLoading, isFetchingNextPage, fetchNextPage } =
     useInfiniteQuery(
-      ["filtered-move-db", [ ]],
+      ["filtered-move-db", filterDependencies],
       ({ pageParam = 1 }) => {
         return axios.get(
           `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pageParam}&sort_by=${sortMethod}&vote_average.gte=${voteRangeValue}&with_genres=${genre}`,
@@ -57,10 +62,6 @@ const FilteredQuery = () => {
   if (error) {
     console.log(error);
   }
-
- 
- 
-
 
   return (
     <>
