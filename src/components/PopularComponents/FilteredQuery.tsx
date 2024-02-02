@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import MovieCard from "../movieCard/MovieCard";
 import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
 
+import noImageOverlay from "../../assets/images/noImageOverlay.webp"
+
 interface RootState {
   chooseOption: {
     genre: string[];
@@ -62,6 +64,7 @@ const FilteredQuery = () => {
   if (error) {
     console.log(error);
   }
+console.log(data);
 
   return (
     <>
@@ -78,7 +81,7 @@ const FilteredQuery = () => {
                     popularStyleWidth="popular_page_style"
                     key={index}
                     title={movie.title}
-                    image={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`}
+                    image={movie.poster_path !== null ? `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}` : noImageOverlay}
                     rating={roundedRating}
                     date={movie.release_date}
                     movieId={movie.id}

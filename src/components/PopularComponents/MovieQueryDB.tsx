@@ -2,6 +2,8 @@ import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
 import { useInfiniteQuery } from "react-query";
 import axios from "axios";
 import MovieCard from "../movieCard/MovieCard";
+import noImageOverlay from "../../assets/images/noImageOverlay.webp"
+
 
 interface movieProps {
   vote_average: number;
@@ -49,7 +51,7 @@ const MovieQueryDB = () => {
                     popularStyleWidth="popular_page_style"
                     key={index}
                     title={movie.title}
-                    image={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`}
+                    image={movie.poster_path !== null ? `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}` : noImageOverlay}
                     rating={roundedRating}
                     date={movie.release_date}
                     movieId={movie.id}
