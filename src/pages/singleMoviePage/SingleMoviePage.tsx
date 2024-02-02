@@ -9,7 +9,7 @@ import SingleMovieOverView from "../../components/singleMovieComponents/SingleMo
 import BookMarkLikeSave from "../../components/singleMovieComponents/BookMarkLikeSave";
 import CompanyComponent from "../../components/singleMovieComponents/CompanyComponent";
 import ProductionCountrys from "../../components/singleMovieComponents/ProductionCountrys";
-import loadingImagePattern from "../../assets/images/glyphicons-picture.svg";
+import loadingImagePattern from "../../assets/images/glyphicons-picture.webp";
 
 const apiKey = import.meta.env.VITE_API_KEY2;
 export default function SingleMoviePage() {

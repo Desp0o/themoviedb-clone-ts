@@ -1,5 +1,5 @@
 import "./MovieListLoadingComponent.css";
-import loadingCover from "../../assets/images/glyphicons-picture.svg";
+import loadingCover from "../../assets/images/glyphicons-picture.webp";
 
 export default function MovieListLoadingComponent() {
   const loadingItems = Array.from({ length: 8 }, (_, index) => index);
