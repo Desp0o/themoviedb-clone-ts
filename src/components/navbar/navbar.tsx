@@ -6,19 +6,23 @@ import findIcon from "../../assets/icons/findIcon.webp";
 import userIcon from "../../assets/icons/userIcon.webp";
 import logoResp from "../../assets/icons/logoResponsive.webp";
 import menuBars from "../../assets/icons/menuBars.webp";
+import close from "../../assets/icons/close.webp";
 import { ResponsivePannel } from "./responsivePannel";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activePannel, setActivePannel] = useState("responsivePannelClosed");
+  const [burgerMenu, setBurgerMenu] = useState(menuBars)
 
   const pannelTrigger = () => {
     if (isOpen) {
       setIsOpen(false);
       setActivePannel("responsivePannelClosed");
+      setBurgerMenu(menuBars)
     } else {
       setIsOpen(true);
       setActivePannel("responsivePannel");
+      setBurgerMenu(close)
     }
   };
 
@@ -42,7 +46,7 @@ export default function Navbar() {
             </div>
 
             <img
-              src={menuBars}
+              src={burgerMenu}
               className="menuTrigger"
               alt="menu trigger"
               onClick={pannelTrigger}
