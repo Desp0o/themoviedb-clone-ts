@@ -22,7 +22,7 @@ export const NavLinks: React.FC<NavLinksProps> = ({linkName}) => {
     let link2Name = ''
     let link3Name = ''
     let link4Name = ''
-    let path1Name = ''
+    let path1Name = './pages/PopularMovies/'
 
 
     if(link === 'Movies'){
