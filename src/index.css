@@ -30,3 +30,16 @@ a, Link{
   text-decoration: none;
   color: inherit;
 }
+
+
+.server_error{
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 40px;
+  color: var(--dark-blue);
+}
