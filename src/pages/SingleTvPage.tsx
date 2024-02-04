@@ -12,12 +12,14 @@ import ProductionCountrys from "../components/singleMovieComponents/ProductionCo
 
 import loadingImagePattern from "../assets/images/glyphicons-picture.webp";
 import ScrollToTop from "../components/ScrollToTop";
+import LoadingSpinner from "../components/loadingSpinner/LoadingSpinner";
+import ErrorScreen from "../components/ErrorScreen";
 
 const apiKey = import.meta.env.VITE_API_KEY2;
 export default function SingleTvPage() {
   const { id } = useParams();
 
-  const { isLoading, data } = useQuery(
+  const { isLoading, data, error } = useQuery(
     ["single-tv-series", id],
     () => {
       return axios.get(
@@ -31,91 +33,99 @@ export default function SingleTvPage() {
       );
     },
     {
-      cacheTime: 1000, // Set cacheTime to 1 second (1000 milliseconds)
+      cacheTime: 1000,
     }
   );
 
   const roundedRating = Math.round(data?.data.vote_average * 10);
-  console.log(data);
+
   return (
     <>
-      <ScrollToTop />
-      <div className="SingleMoviePage">
-        <div
-          className="SingleMoviePage_backdrop"
-          style={{
-            backgroundImage: `url(${
-              isLoading ? (
-                <></>
-              ) : (
-                `http://www.themoviedb.org/t/p/w1920_and_h800_bestv2${data?.data.backdrop_path}`
-              )
-            })`,
-          }}
-        >
-          <div className="SingleMoviePage_backdrop_overlay" />
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : error ? (
+        <ErrorScreen errorName={error} />
+      ) : (
+        <div className="SingleMoviePage">
+          <div
+            className="SingleMoviePage_backdrop"
+            style={{
+              backgroundImage: `url(${
+                isLoading ? (
+                  <></>
+                ) : (
+                  `http://www.themoviedb.org/t/p/w1920_and_h800_bestv2${data?.data.backdrop_path}`
+                )
+              })`,
+            }}
+          >
+            <div className="SingleMoviePage_backdrop_overlay" />
 
-          <div className="backdrop_inner">
-            <div className="backdrop_inner_poster_container">
-              {isLoading ? (
-                <img
-                  loading="eager"
-                  src={loadingImagePattern}
-                  className="single_poster"
-                  alt="single_poster"
-                  style={isLoading ? { objectFit: "contain" } : {}}
-                />
-              ) : (
-                <img
-                  src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${data?.data.poster_path}`}
-                  className="single_poster"
-                  alt="single_poster"
-                />
-              )}
-            </div>
-
-            <div className="backdrop_inner_right_side">
-              {!isLoading && (
-                <SingleMovieTitle
-                  title={data?.data.name}
-                  date={data?.data.first_air_date}
-                  genre={data?.data.genres}
-                  country={data?.data.production_countries}
-                  runtime={data?.data.runtime}
-                />
-              )}
-
-              <div className="single_movie_page_rating_container">
-                {!isLoading && (
-                  <>
-                    <RatingCircle
-                      width={68}
-                      height={68}
-                      CircleHeight={64}
-                      CircleWidth={64}
-                      rating={roundedRating}
-                    />
-
-                    <BookMarkLikeSave />
-                  </>
+            <div className="backdrop_inner">
+              <div className="backdrop_inner_poster_container">
+                {isLoading ? (
+                  <img
+                    loading="eager"
+                    src={loadingImagePattern}
+                    className="single_poster"
+                    alt="single_poster"
+                    style={isLoading ? { objectFit: "contain" } : {}}
+                  />
+                ) : (
+                  <img
+                    src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${data?.data.poster_path}`}
+                    className="single_poster"
+                    alt="single_poster"
+                  />
                 )}
               </div>
 
-              {!isLoading && <TagLine tagline={data?.data.tagline} />}
+              <div className="backdrop_inner_right_side">
+                {!isLoading && (
+                  <SingleMovieTitle
+                    title={data?.data.name}
+                    date={data?.data.first_air_date}
+                    genre={data?.data.genres}
+                    country={data?.data.production_countries}
+                    runtime={data?.data.runtime}
+                  />
+                )}
 
-              {!isLoading && (
-                <SingleMovieOverView overview={data?.data.overview} />
-              )}
+                <div className="single_movie_page_rating_container">
+                  {!isLoading && (
+                    <>
+                      <RatingCircle
+                        width={68}
+                        height={68}
+                        CircleHeight={64}
+                        CircleWidth={64}
+                        rating={roundedRating}
+                      />
+
+                      <BookMarkLikeSave />
+                    </>
+                  )}
+                </div>
+
+                {!isLoading && <TagLine tagline={data?.data.tagline} />}
+
+                {!isLoading && (
+                  <SingleMovieOverView overview={data?.data.overview} />
+                )}
+              </div>
             </div>
           </div>
+          {!isLoading && (
+            <>
+              <CompanyComponent companyList={data?.data.production_companies} />
+              <ProductionCountrys
+                countryList={data?.data.production_countries}
+              />
+            </>
+          )}
         </div>
-        {!isLoading && (
-          <>
-            <CompanyComponent companyList={data?.data.production_companies} />
-            <ProductionCountrys countryList={data?.data.production_countries} />
-          </>
-        )}
-      </div>
+      )}
+      <ScrollToTop />
     </>
   );
 }

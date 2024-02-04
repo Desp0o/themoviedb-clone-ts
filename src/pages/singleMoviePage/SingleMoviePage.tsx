@@ -36,9 +36,6 @@ export default function SingleMoviePage() {
     }
   );
 
-  if (error) {
-    console.log(error);
-  }
   const roundedRating = Math.round(data?.data.vote_average * 10);
 
   return (
