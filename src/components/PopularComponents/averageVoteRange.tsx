@@ -1,4 +1,4 @@
-import { useEffect, ChangeEvent } from "react";
+import { ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setRange, setIsFilteringTrue } from "../../store/sortingValues";
 
@@ -20,10 +20,6 @@ const VoteRange = () => {
     dispatch(setRange(Number(event.target.value)));
     dispatch(setIsFilteringTrue())
   };
-
-  useEffect(() => {
-    console.log(voteRangeValue);
-  }, [voteRangeValue]);
 
   return (
     <div className="range_for_vote_inner">

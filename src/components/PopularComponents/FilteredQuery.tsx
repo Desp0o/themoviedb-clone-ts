@@ -64,7 +64,6 @@ const FilteredQuery = () => {
   if (error) {
     console.log(error);
   }
-console.log(data);
 
   return (
     <>

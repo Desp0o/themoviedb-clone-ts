@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setOption, setIsFilteringTrue } from "../../store/sortingValues";
-import { ChangeEvent, useEffect } from "react";
+import { ChangeEvent } from "react";
 
 interface inputProps {
   e: ChangeEvent<HTMLSelectElement>;
@@ -19,10 +19,6 @@ const SortComponent: React.FC = () => {
   const selectedOption = useSelector(
     (store: RootState) => store.chooseOption.value
   );
-
-  useEffect(() => {
-    console.log(selectedOption);
-  }, [selectedOption]);
 
   const selectOption = (e: inputProps["e"]) => {
     dispatch(setOption(e.target.value));

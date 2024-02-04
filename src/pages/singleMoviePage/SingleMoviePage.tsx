@@ -11,12 +11,14 @@ import CompanyComponent from "../../components/singleMovieComponents/CompanyComp
 import ProductionCountrys from "../../components/singleMovieComponents/ProductionCountrys";
 import loadingImagePattern from "../../assets/images/glyphicons-picture.webp";
 import ScrollToTop from "../../components/ScrollToTop";
+import LoadingSpinner from "../../components/loadingSpinner/LoadingSpinner";
+import ErrorScreen from "../../components/ErrorScreen";
 
 const apiKey = import.meta.env.VITE_API_KEY2;
 export default function SingleMoviePage() {
   const { id } = useParams();
 
-  const { isLoading, data } = useQuery(
+  const { isLoading, data, error } = useQuery(
     ["single-movie", id],
     () => {
       return axios.get(
@@ -38,83 +40,96 @@ export default function SingleMoviePage() {
 
   return (
     <>
-      <ScrollToTop />
-      <div className="SingleMoviePage">
-        <div
-          className="SingleMoviePage_backdrop"
-          style={{
-            backgroundImage: `url(${
-              isLoading ? (
-                <></>
-              ) : (
-                `http://www.themoviedb.org/t/p/w1920_and_h800_bestv2${data?.data.backdrop_path}`
-              )
-            })`,
-          }}
-        >
-          <div className="SingleMoviePage_backdrop_overlay" />
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        error ? <ErrorScreen errorName={error} /> :
+        <>
+          <ScrollToTop />
+          <div className="SingleMoviePage">
+            <div
+              className="SingleMoviePage_backdrop"
+              style={{
+                backgroundImage: `url(${
+                  isLoading ? (
+                    <></>
+                  ) : (
+                    `http://www.themoviedb.org/t/p/w1920_and_h800_bestv2${data?.data.backdrop_path}`
+                  )
+                })`,
+              }}
+            >
+              <div className="SingleMoviePage_backdrop_overlay" />
 
-          <div className="backdrop_inner">
-            <div className="backdrop_inner_poster_container">
-              {isLoading ? (
-                <img
-                  loading="eager"
-                  src={loadingImagePattern}
-                  className="single_poster"
-                  alt="single_poster"
-                  style={isLoading ? { objectFit: "contain" } : {}}
-                />
-              ) : (
-                <img
-                  src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${data?.data.poster_path}`}
-                  className="single_poster"
-                  alt="single_poster"
-                />
-              )}
-            </div>
-
-            <div className="backdrop_inner_right_side">
-              {!isLoading && (
-                <SingleMovieTitle
-                  title={data?.data.title}
-                  date={data?.data.release_date}
-                  genre={data?.data.genres}
-                  country={data?.data.production_countries}
-                  runtime={data?.data.runtime}
-                />
-              )}
-
-              <div className="single_movie_page_rating_container">
-                {!isLoading && (
-                  <>
-                    <RatingCircle
-                      width={68}
-                      height={68}
-                      CircleHeight={64}
-                      CircleWidth={64}
-                      rating={roundedRating}
+              <div className="backdrop_inner">
+                <div className="backdrop_inner_poster_container">
+                  {isLoading ? (
+                    <img
+                      loading="eager"
+                      src={loadingImagePattern}
+                      className="single_poster"
+                      alt="single_poster"
+                      style={isLoading ? { objectFit: "contain" } : {}}
                     />
+                  ) : (
+                    <img
+                      src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${data?.data.poster_path}`}
+                      className="single_poster"
+                      alt="single_poster"
+                    />
+                  )}
+                </div>
 
-                    <BookMarkLikeSave />
-                  </>
-                )}
+                <div className="backdrop_inner_right_side">
+                  {!isLoading && (
+                    <SingleMovieTitle
+                      title={data?.data.title}
+                      date={data?.data.release_date}
+                      genre={data?.data.genres}
+                      country={data?.data.production_countries}
+                      runtime={data?.data.runtime}
+                    />
+                  )}
+
+                  <div className="single_movie_page_rating_container">
+                    {!isLoading && (
+                      <>
+                        <RatingCircle
+                          width={68}
+                          height={68}
+                          CircleHeight={64}
+                          CircleWidth={64}
+                          rating={roundedRating}
+                        />
+
+                        <BookMarkLikeSave />
+                      </>
+                    )}
+                  </div>
+
+                  {!isLoading && <TagLine tagline={data?.data.tagline} />}
+
+                  {!isLoading && (
+                    <SingleMovieOverView overview={data?.data.overview} />
+                  )}
+                </div>
               </div>
-
-              {!isLoading && <TagLine tagline={data?.data.tagline} />}
-
-              {!isLoading && (
-                <SingleMovieOverView overview={data?.data.overview} />
-              )}
             </div>
+            {!isLoading && (
+              <>
+                <CompanyComponent
+                  companyList={data?.data.production_companies}
+                />
+                <ProductionCountrys
+                  countryList={data?.data.production_countries}
+                />
+              </>
+            )}
           </div>
-        </div>
-        {!isLoading && (
-          <>
-            <CompanyComponent companyList={data?.data.production_companies} />
-            <ProductionCountrys countryList={data?.data.production_countries} />
-          </>
-        )}
-      </div>
+        </>
+      )}
+
+     
     </>
   );
 }
