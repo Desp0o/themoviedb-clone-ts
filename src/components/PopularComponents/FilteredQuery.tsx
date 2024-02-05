@@ -40,7 +40,7 @@ const FilteredQuery = () => {
     (state: RootState) => state.chooseOption.filterDependencies
   );
 
-  const { data, error, isLoading, isFetchingNextPage, fetchNextPage } =
+  const { data, isLoading, isFetchingNextPage, fetchNextPage } =
     useInfiniteQuery(
       ["filtered-move-db", filterDependencies],
       ({ pageParam = 1 }) => {
@@ -60,10 +60,6 @@ const FilteredQuery = () => {
         },
       }
     );
-
-  if (error) {
-    console.log(error);
-  }
 
   return (
     <>
