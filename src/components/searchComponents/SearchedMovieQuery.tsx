@@ -20,7 +20,7 @@ interface movieProps {
   poster_path: string;
 }
 
-const SearhedMovieQuery: React.FC<SerachedItemProp> = (name) => {
+const SearhedMovieQuery: React.FC<SerachedItemProp> = ({name}) => {
   const { data, isLoading, error, fetchNextPage } = useInfiniteQuery(
     ["searched-movie", name],
     ({ pageParam = 1 }) => {
@@ -41,7 +41,6 @@ const SearhedMovieQuery: React.FC<SerachedItemProp> = (name) => {
     }
   );
 
-  console.log(data);
   console.log(error);
 
   return (
