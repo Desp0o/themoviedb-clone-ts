@@ -17,10 +17,6 @@ interface RootState {
 const Search = () => {
   const { name } = useParams();
 
-  // useEffect(()=>{
-  //   name?.length !== 0 ? <ScrollToTop /> : <></>
-  // },[name])
-
   const [isMovieList, setIsMovieList] = useState(localStorage.getItem('isMovieList') || true);
 
   const movieQuery = `https://api.themoviedb.org/3/search/movie?query=${name}&include_adult=false&page=`;
@@ -44,9 +40,18 @@ const Search = () => {
     localStorage.setItem('isMovieList', 'false')
   };
 
+  useEffect(()=>{
+    
+    if(localStorage.getItem('isMovieList') === 'true'){
+      setIsMovieList(true)
+    }else if(localStorage.getItem('isMovieList') === 'false'){
+      setIsMovieList(false)
+    }
+    
+  },[isMovieList])
+
   return (
     <div className="search">
-      {name !== undefined ? <ScrollToTop /> : <></>}
       <div className="search_inner">
         <div className="search_left_block">
           <div className="search_result">
