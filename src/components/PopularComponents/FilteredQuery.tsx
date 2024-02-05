@@ -61,10 +61,6 @@ const FilteredQuery = () => {
       }
     );
 
-  if (error) {
-    console.log(error);
-  }
-
   return (
     <>
       {isLoading ? (
