@@ -7,10 +7,13 @@ import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
 import ErrorScreen from "../ErrorScreen";
 import noImageOverlay from "../../assets/images/glyphicons-picture.webp";
 import { useDispatch } from "react-redux";
-import { setMovieLength } from "../../store/searchValues";
+import { ActionCreatorWithPayload, Dispatch } from "@reduxjs/toolkit";
 
 interface SerachedItemProp {
   name: string | undefined;
+  queryPath: string
+  dispatchName: ActionCreatorWithPayload<Dispatch>
+  queryName: string
 }
 
 interface movieProps {
@@ -22,13 +25,13 @@ interface movieProps {
   poster_path: string;
 }
 
-const SearhedMovieQuery: React.FC<SerachedItemProp> = ({ name }) => {
+const SearhedMovieQuery: React.FC<SerachedItemProp> = ({ name, queryPath, dispatchName, queryName }) => {
   const { data, isLoading, error, fetchNextPage, isFetchingNextPage } =
     useInfiniteQuery(
-      ["searched-movie", name],
+      [queryName, name],
       ({ pageParam = 1 }) => {
         return axios.get(
-          `https://api.themoviedb.org/3/search/movie?query=${name}&include_adult=false&page=${pageParam}`,
+          `${queryPath}${pageParam}`,
           {
             headers: {
               Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
@@ -48,9 +51,9 @@ const SearhedMovieQuery: React.FC<SerachedItemProp> = ({ name }) => {
 
     useEffect(() => {
       if (data) {
-        dispatch(setMovieLength(data?.pages[0].data.total_results));
+        dispatch(dispatchName(data?.pages[0].data.total_results));
       }
-    }, [data]);
+    }, [data, dispatch, dispatchName]);
 
 
   return (
