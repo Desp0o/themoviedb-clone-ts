@@ -41,7 +41,6 @@ const SearhedMovieQuery: React.FC<SerachedItemProp> = ({name}) => {
     }
   );
 
-  console.log(error);
 
   return (
     <div>

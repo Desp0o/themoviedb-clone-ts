@@ -1,9 +1,17 @@
 import { useParams } from "react-router-dom";
 import "../components/searchComponents/Search.css";
 import SearhedMovieQuery from "../components/searchComponents/SearchedMovieQuery";
+import { useEffect } from "react";
 
 const Search = () => {
   const { name } = useParams();
+  
+  useEffect(()=>{
+    if(name === null){
+      console.log('hey');
+      
+    }
+  },[name])
 
   return (
     <div className="search">
