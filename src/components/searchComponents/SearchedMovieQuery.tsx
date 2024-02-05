@@ -1,11 +1,13 @@
 import { useInfiniteQuery } from "react-query";
 import axios from "axios";
 import "./Search.css";
-import React from "react";
+import React, {useEffect} from "react";
 import MovieCard from "../movieCard/MovieCard";
 import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
 import ErrorScreen from "../ErrorScreen";
 import noImageOverlay from "../../assets/images/glyphicons-picture.webp";
+import { useDispatch } from "react-redux";
+import { setMovieLength } from "../../store/searchValues";
 
 interface SerachedItemProp {
   name: string | undefined;
@@ -41,6 +43,15 @@ const SearhedMovieQuery: React.FC<SerachedItemProp> = ({ name }) => {
         },
       }
     );
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+      if (data) {
+        dispatch(setMovieLength(data?.pages[0].data.total_results));
+      }
+    }, [data]);
+
 
   return (
     <div>
