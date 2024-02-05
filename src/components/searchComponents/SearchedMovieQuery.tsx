@@ -12,7 +12,7 @@ import { ActionCreatorWithPayload, Dispatch } from "@reduxjs/toolkit";
 interface SerachedItemProp {
   name: string | undefined;
   queryPath: string
-  dispatchName: ActionCreatorWithPayload<Dispatch>
+  dispatchName: ActionCreatorWithPayload<Dispatch | number> 
   queryName: string
   isTv?: boolean
 }
@@ -44,13 +44,14 @@ const SearhedMovieQuery: React.FC<SerachedItemProp> = ({ name, queryPath, dispat
       {
         getNextPageParam: (_lastPage, pages) => {
           return pages.length + 1;
-        },
+        }
       }
     );
 
     const dispatch = useDispatch()
 
     useEffect(() => {
+      dispatch(dispatchName(0));
       if (data) {
         dispatch(dispatchName(data?.pages[0].data.total_results));
       }
