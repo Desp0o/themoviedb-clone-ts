@@ -1,0 +1,35 @@
+.search {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0px 20px;
+  background-color: #ffffff;
+}
+
+.search_inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  margin-top: 60px;
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.search_result{
+    background-color: #01b4e4;
+    border-radius: 5px;
+    width: 260px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    margin: 0;
+    font-weight: 600;
+    padding: 20px;
+    color: #fff;
+}
