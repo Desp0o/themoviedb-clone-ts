@@ -4,7 +4,8 @@ import SearhedMovieQuery from "../components/searchComponents/SearchedMovieQuery
 import { useSelector } from "react-redux";
 import MovieLengthComponent from "../components/searchComponents/MovieLengthComponent";
 import { setMovieLength, setTvShowLength } from "../store/searchValues";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import ScrollToTop from "../components/ScrollToTop";
 
 interface RootState {
   searchOptions: {
@@ -15,6 +16,10 @@ interface RootState {
 
 const Search = () => {
   const { name } = useParams();
+
+  // useEffect(()=>{
+  //   name?.length !== 0 ? <ScrollToTop /> : <></>
+  // },[name])
 
   const [isMovieList, setIsMovieList] = useState(localStorage.getItem('isMovieList') || true);
 
@@ -41,6 +46,7 @@ const Search = () => {
 
   return (
     <div className="search">
+      {name !== undefined ? <ScrollToTop /> : <></>}
       <div className="search_inner">
         <div className="search_left_block">
           <div className="search_result">
