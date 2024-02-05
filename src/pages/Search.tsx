@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import "../components/searchComponents/Search.css"
+import SearhedMovieQuery from "../components/searchComponents/SearchedMovieQuery"
 
 const Search = () => {
 
@@ -12,6 +13,8 @@ const Search = () => {
                 <h3>Search Results</h3>
             </div>
         </div>
+
+        <SearhedMovieQuery name="dodo"/>
     </div>
   )
 }

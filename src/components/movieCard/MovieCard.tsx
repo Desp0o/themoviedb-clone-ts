@@ -8,9 +8,9 @@ import loadingImage from "../../assets/images/glyphicons-picture.webp";
 interface movieCardProps {
   image: string;
   rating: number;
-  title: string;
-  date: string;
-  movieId: number;
+  title?: string;
+  date?: string;
+  movieId?: number;
   popularStyleWidth?: string;
   overview?:string;
   isTvShow?: boolean;
