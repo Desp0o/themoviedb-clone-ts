@@ -61,7 +61,8 @@ const SearhedMovieQuery: React.FC<SerachedItemProp> = (name) => {
                   rating={0}
                   overview={movie.overview}
                   date={movie.release_date}
-                  popularStyleWidth='popular_page_style'
+                  movieId={movie.id}
+                  popularStyleWidth='search_page_style'
                   image={
                     movie.poster_path !== null
                       ? `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`

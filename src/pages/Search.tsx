@@ -12,9 +12,14 @@ const Search = () => {
             <div className="search_result">
                 <h3>Search Results</h3>
             </div>
+
+            <div className="" style={{width: "100%"}}>
+            <SearhedMovieQuery name="dodo"/>
+            </div>
+            
         </div>
 
-        <SearhedMovieQuery name="dodo"/>
+        
     </div>
   )
 }

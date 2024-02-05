@@ -186,3 +186,62 @@
     display: none;
   }
 }
+
+
+
+/* search style */
+.movie_card_container.search_page_style{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 140px;
+
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  border-radius: 10px;
+}
+
+.movie_Card.search_page_style {
+  position: unset;
+  height: 140px;
+  width: 95px;
+}
+
+.movie_Card.search_page_style img {
+  height: 140px;
+  width: 95px;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 0px;
+}
+
+.movie_card_rating.search_page_style {
+  display: none;
+}
+
+.movie_card_outter_description.search_page_style{
+  box-sizing: border-box;
+  display: -webkit-box;
+  margin-top: 10px;
+  margin-left: 12px;
+  width: 100%;
+    max-width: 90%;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie_card_title.search_page_style {
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 12px;
+  width: 140px;
+}
