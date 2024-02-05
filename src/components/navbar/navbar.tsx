@@ -2,8 +2,8 @@ import "./navbar.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import mainLogo from "../../assets/icons/mainLogo.webp";
-import findIcon from "../../assets/icons/findIcon.webp";
-import userIcon from "../../assets/icons/userIcon.webp";
+// import findIcon from "../../assets/icons/findIcon.webp";
+// import userIcon from "../../assets/icons/userIcon.webp";
 import logoResp from "../../assets/icons/logoResponsive.webp";
 import menuBars from "../../assets/icons/menuBars.webp";
 import close from "../../assets/icons/close.webp";
@@ -53,7 +53,7 @@ export default function Navbar() {
             />
           </div>
 
-          <div className="navRigth">
+          {/* <div className="navRigth">
             {window.innerWidth > 768 ? (
               <Link to="/pages/singleMoviePage/2">Login</Link>
             ) : (
@@ -64,7 +64,7 @@ export default function Navbar() {
             )}
 
             <img src={findIcon} alt="find" className="finIcon" />
-          </div>
+          </div> */}
         </div>
       </div>
 
