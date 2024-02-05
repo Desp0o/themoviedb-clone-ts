@@ -14,7 +14,7 @@ const Search = () => {
             </div>
 
             <div className="" style={{width: "100%"}}>
-            <SearhedMovieQuery name="dodo"/>
+            <SearhedMovieQuery name="lord"/>
             </div>
             
         </div>
