@@ -14,6 +14,7 @@ interface SerachedItemProp {
   queryPath: string
   dispatchName: ActionCreatorWithPayload<Dispatch>
   queryName: string
+  isTv?: boolean
 }
 
 interface movieProps {
@@ -25,7 +26,7 @@ interface movieProps {
   poster_path: string;
 }
 
-const SearhedMovieQuery: React.FC<SerachedItemProp> = ({ name, queryPath, dispatchName, queryName }) => {
+const SearhedMovieQuery: React.FC<SerachedItemProp> = ({ name, queryPath, dispatchName, queryName, isTv }) => {
   const { data, isLoading, error, fetchNextPage, isFetchingNextPage } =
     useInfiniteQuery(
       [queryName, name],
@@ -69,6 +70,7 @@ const SearhedMovieQuery: React.FC<SerachedItemProp> = ({ name, queryPath, dispat
               return (
                 <MovieCard
                   key={index}
+                  isTvShow={isTv}
                   title={movie.title}
                   rating={0}
                   overview={movie.overview}

@@ -4,7 +4,7 @@ import SearhedMovieQuery from "../components/searchComponents/SearchedMovieQuery
 import { useSelector } from "react-redux";
 import MovieLengthComponent from "../components/searchComponents/MovieLengthComponent";
 import { setMovieLength, setTvShowLength } from "../store/searchValues";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface RootState {
   searchOptions: {
@@ -28,10 +28,6 @@ const Search = () => {
   const tvShowsLength = useSelector(
     (state: RootState) => state.searchOptions.tvShwowLength
   );
-
-  useEffect(() => {
-    console.log(isMovieList);
-  }, [isMovieList]);
 
   const showMovie = () => {
     setIsMovieList(true);
@@ -71,6 +67,7 @@ const Search = () => {
             />
           ) : (
             <SearhedMovieQuery
+              isTv={true}
               name={name}
               queryName="searched-tvShows"
               queryPath={tvShowQuery}
