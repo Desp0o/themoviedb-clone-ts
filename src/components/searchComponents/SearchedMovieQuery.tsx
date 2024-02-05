@@ -8,7 +8,7 @@ import ErrorScreen from "../ErrorScreen";
 import noImageOverlay from "../../assets/images/glyphicons-picture.webp";
 
 interface SerachedItemProp {
-  name: string;
+  name: string | undefined;
 }
 
 interface movieProps {
