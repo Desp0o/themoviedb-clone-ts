@@ -20,27 +20,27 @@ interface movieProps {
   poster_path: string;
 }
 
-const SearhedMovieQuery: React.FC<SerachedItemProp> = ({name}) => {
-  const { data, isLoading, error, fetchNextPage } = useInfiniteQuery(
-    ["searched-movie", name],
-    ({ pageParam = 1 }) => {
-      return axios.get(
-        `https://api.themoviedb.org/3/search/movie?query=${name}&include_adult=false&page=${pageParam}`,
-        {
-          headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
-            Accept: "application/json",
-          },
-        }
-      );
-    },
-    {
-      getNextPageParam: (_lastPage, pages) => {
-        return pages.length + 1;
+const SearhedMovieQuery: React.FC<SerachedItemProp> = ({ name }) => {
+  const { data, isLoading, error, fetchNextPage, isFetchingNextPage } =
+    useInfiniteQuery(
+      ["searched-movie", name],
+      ({ pageParam = 1 }) => {
+        return axios.get(
+          `https://api.themoviedb.org/3/search/movie?query=${name}&include_adult=false&page=${pageParam}`,
+          {
+            headers: {
+              Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
+              Accept: "application/json",
+            },
+          }
+        );
       },
-    }
-  );
-
+      {
+        getNextPageParam: (_lastPage, pages) => {
+          return pages.length + 1;
+        },
+      }
+    );
 
   return (
     <div>
@@ -60,7 +60,7 @@ const SearhedMovieQuery: React.FC<SerachedItemProp> = ({name}) => {
                   overview={movie.overview}
                   date={movie.release_date}
                   movieId={movie.id}
-                  popularStyleWidth='search_page_style'
+                  popularStyleWidth="search_page_style"
                   image={
                     movie.poster_path !== null
                       ? `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`
@@ -71,6 +71,14 @@ const SearhedMovieQuery: React.FC<SerachedItemProp> = ({name}) => {
             })}
           </div>
         ))
+      )}
+
+      {isFetchingNextPage ? (
+        <LoadingSpinner loadingNextPage="loadingNextPage" />
+      ) : (
+        <button className="fetch_next_movies" onClick={() => fetchNextPage()}>
+          Load More
+        </button>
       )}
     </div>
   );

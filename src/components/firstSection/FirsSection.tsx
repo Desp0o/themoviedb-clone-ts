@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./firstSection.css";
 import { Link, useNavigate } from "react-router-dom";
 
