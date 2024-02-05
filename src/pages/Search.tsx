@@ -4,20 +4,23 @@ import SearhedMovieQuery from "../components/searchComponents/SearchedMovieQuery
 import { useSelector } from "react-redux";
 import MovieLengthComponent from "../components/searchComponents/MovieLengthComponent";
 import { setMovieLength, setTvShowLength } from "../store/searchValues";
+import { useEffect, useState } from "react";
 
 interface RootState {
   searchOptions: {
     movieLength: number;
-    tvShwowLength: number
+    tvShwowLength: number;
   };
 }
 
 const Search = () => {
   const { name } = useParams();
 
-  const movieQuery = `https://api.themoviedb.org/3/search/movie?query=${name}&include_adult=false&page=`
-                      
-  const tvShowQuery = `https://api.themoviedb.org/3/search/tv?query=${name}&include_adult=false&page=`
+  const [isMovieList, setIsMovieList] = useState(true);
+
+  const movieQuery = `https://api.themoviedb.org/3/search/movie?query=${name}&include_adult=false&page=`;
+
+  const tvShowQuery = `https://api.themoviedb.org/3/search/tv?query=${name}&include_adult=false&page=`;
 
   const movieLength = useSelector(
     (state: RootState) => state.searchOptions.movieLength
@@ -26,6 +29,17 @@ const Search = () => {
     (state: RootState) => state.searchOptions.tvShwowLength
   );
 
+  useEffect(() => {
+    console.log(isMovieList);
+  }, [isMovieList]);
+
+  const showMovie = () => {
+    setIsMovieList(true);
+  };
+
+  const showTvSHows = () => {
+    setIsMovieList(false);
+  };
 
   return (
     <div className="search">
@@ -35,14 +49,34 @@ const Search = () => {
             <h3>Search Results</h3>
           </div>
 
-          <MovieLengthComponent name="Movies" length={movieLength} />
-          <MovieLengthComponent name="Tv Shows" length={tvShowsLength} />
-
+          <MovieLengthComponent
+            name="Movies"
+            length={movieLength}
+            funName={() => showMovie()}
+          />
+          <MovieLengthComponent
+            name="Tv Shows"
+            length={tvShowsLength}
+            funName={() => showTvSHows()}
+          />
         </div>
 
         <div className="" style={{ width: "100%" }}>
-          <SearhedMovieQuery name={name} queryName="searched-movie" queryPath={movieQuery} dispatchName={setMovieLength}/>
-          <SearhedMovieQuery name={name} queryName="searched-tvShows" queryPath={tvShowQuery} dispatchName={setTvShowLength}/>
+          {isMovieList ? (
+            <SearhedMovieQuery
+              name={name}
+              queryName="searched-movie"
+              queryPath={movieQuery}
+              dispatchName={setMovieLength}
+            />
+          ) : (
+            <SearhedMovieQuery
+              name={name}
+              queryName="searched-tvShows"
+              queryPath={tvShowQuery}
+              dispatchName={setTvShowLength}
+            />
+          )}
         </div>
       </div>
     </div>
