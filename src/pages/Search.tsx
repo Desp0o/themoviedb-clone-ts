@@ -16,7 +16,7 @@ interface RootState {
 const Search = () => {
   const { name } = useParams();
 
-  const [isMovieList, setIsMovieList] = useState(true);
+  const [isMovieList, setIsMovieList] = useState(localStorage.getItem('isMovieList') || true);
 
   const movieQuery = `https://api.themoviedb.org/3/search/movie?query=${name}&include_adult=false&page=`;
 
@@ -31,10 +31,12 @@ const Search = () => {
 
   const showMovie = () => {
     setIsMovieList(true);
+    localStorage.setItem('isMovieList', 'true')
   };
 
   const showTvSHows = () => {
     setIsMovieList(false);
+    localStorage.setItem('isMovieList', 'false')
   };
 
   return (
@@ -57,15 +59,18 @@ const Search = () => {
           />
         </div>
 
-        <div className="" style={{ width: "100%" }}>
-          {isMovieList ? (
+        <div style={{ width: "100%" }}>
+          
+          <div style={isMovieList ? { display: "block" } : { display: "none" }}>
             <SearhedMovieQuery
               name={name}
               queryName="searched-movie"
               queryPath={movieQuery}
               dispatchName={setMovieLength}
             />
-          ) : (
+          </div>
+            
+          <div style={isMovieList ? { display: "none" } : { display: "block" }}>
             <SearhedMovieQuery
               isTv={true}
               name={name}
@@ -73,7 +78,8 @@ const Search = () => {
               queryPath={tvShowQuery}
               dispatchName={setTvShowLength}
             />
-          )}
+          </div>
+          
         </div>
       </div>
     </div>
