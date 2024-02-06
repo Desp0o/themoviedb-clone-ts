@@ -1,14 +1,24 @@
 import { useState } from "react";
 import "./firstSection.css";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setScrollTopSearchPage } from "../../store/searchValues";
 
 export default function FirsSection() {
   const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate()
 
+
+  const dispatch = useDispatch()
   const redirect = (e:React.KeyboardEvent<HTMLInputElement>)=>{
     if (e.key === 'Enter') {return navigate(`/pages/Search/${searchValue}`)}
+    dispatch(setScrollTopSearchPage())
   }
+
+
+  
+
+
 
   return (
     <div className="first_Section">

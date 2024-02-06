@@ -11,6 +11,7 @@ interface RootState {
   searchOptions: {
     movieLength: number;
     tvShwowLength: number;
+    scrollTopSearchPage: boolean
   };
 }
 
@@ -28,6 +29,10 @@ const Search = () => {
   );
   const tvShowsLength = useSelector(
     (state: RootState) => state.searchOptions.tvShwowLength
+  );
+
+  const scrollTopSearchPage = useSelector(
+    (state: RootState) => state.searchOptions.scrollTopSearchPage
   );
 
   const showMovie = () => {
@@ -50,12 +55,21 @@ const Search = () => {
     
   },[isMovieList])
 
+
+  const [foo, setFoo] = useState(false)
+  useEffect(()=>{
+    console.log(scrollTopSearchPage + 'scroll');
+    
+  },[foo])
+
   return (
+    <>
+    <ScrollToTop />
     <div className="search">
       <div className="search_inner">
         <div className="search_left_block">
           <div className="search_result">
-            <h3>Search Results</h3>
+            <h3 onClick={()=>setFoo(true)}>Search Results</h3>
           </div>
 
           <MovieLengthComponent
@@ -94,6 +108,7 @@ const Search = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
